@@ -21,11 +21,9 @@ public class SwitchTest1 {
         // 본격 switch문
         switch(avg/10){
             case 10:
-                System.out.println("A");
-                break; // 특정 케이스문에 해당이 되어도 break가 없으면 아래도 계속 처리가 진행됨.
             case 9:
                 System.out.println("A");
-                break;
+                break; // 특정 케이스문에 해당이 되어도 break가 없으면 아래도 계속 처리가 진행됨.
             case 8:
                 System.out.println("B");
                 break;

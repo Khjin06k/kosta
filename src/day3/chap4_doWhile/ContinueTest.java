@@ -1,4 +1,4 @@
-package day3.doWhile;
+package day3.chap4_doWhile;
 
 public class ContinueTest {
     public static void main(String[] args) {

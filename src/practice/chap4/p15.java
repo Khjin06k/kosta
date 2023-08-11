@@ -14,6 +14,14 @@ public class p15 {
             result += (tmp%10);
             tmp = tmp/10;
         }
+
+        /*
+        while(tmp != 0){
+            result = result * 10 + tmp % 10;
+            tmp /= 10;
+        }
+        */
+
         if(number == result)
             System.out.println( number + "는 회문수 입니다.");
         else

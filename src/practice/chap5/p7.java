@@ -26,7 +26,10 @@ public class p7 {
 //            1. 금액(money)을 동전단위로 나눠서 필요한 동전의 개수(coinNum)를 구한다.
             coinNum = money / coinUnit[i];
 //            2. 배열 coin에서 coinNum만큼의 동전을 뺀다.(만일 충분한 동전이 없다면 배열 coin에 있는 만큼만 뺀다.)
-            if(coinNum>=coin[i]) coin[i] = 0;
+            if(coinNum>=coin[i]){
+                coinNum = coin[i];
+                coin[i] = 0;
+            }
             else coin[i] = coin[i]-coinNum;
 
 //            3. 금액에서 동전의 개수(coinNum)와 동전단위를 곱한 값을 뺀다.

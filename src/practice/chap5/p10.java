@@ -17,6 +17,7 @@ public class p10 {
             char ch = src.charAt(i);
             // ch가 숫자인지 알바벳인지를 먼저 판별한 후 어느 코드에서 가져올 것인지 판단 필요
 
+            // src의 문자열은 a~z와 숫자로만 이루어져 있기 때문에 아스키코드 기준 'a'보다 크거나 같으면 소문자, 작은것은 숫자로 분류 가능
             // ch가 문자라면
             if(ch >= 'a'){
                 result += abcCode[ch-'a'];

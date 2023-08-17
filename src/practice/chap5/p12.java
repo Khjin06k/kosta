@@ -11,7 +11,7 @@ public class p12 {
         int m = 0;
         while(m<300){
             day++;
-            m += 52;
+            m += 55;
             if(m >= 300) break;
             else m -= 3;
         }

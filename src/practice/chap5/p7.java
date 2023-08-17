@@ -12,7 +12,9 @@ public class p7 {
             System.exit(0);
         }
 
-        // 문자열을 숫자로 변환한다. 입력한 값이 숫자가 아닐 경우 예외가 발생한다.
+        // 문자열을 숫자로 변환
+        // 입력한 값이 숫자가 아닐 경우 예외가 발생
+        // args를 사용하기 때문에 Configuration의 argument에 값을 설정해야 결과 출력이 가능함
         int money = Integer.parseInt(args[0]);
         System.out.println("money="+money);
 
@@ -22,19 +24,27 @@ public class p7 {
         for(int i=0;i<coinUnit.length;i++) {
             int coinNum = 0;
 
-//            (1) 아래의 로직에 맞게 코드를 작성하시오.
-//            1. 금액(money)을 동전단위로 나눠서 필요한 동전의 개수(coinNum)를 구한다.
+//          1. 금액(money)을 동전단위로 나눠서 필요한 동전의 개수(coinNum)를 구한다.
             coinNum = money / coinUnit[i];
-//            2. 배열 coin에서 coinNum만큼의 동전을 뺀다.(만일 충분한 동전이 없다면 배열 coin에 있는 만큼만 뺀다.)
+
+//          2. 배열 coin에서 coinNum만큼의 동전을 뺀다.(만일 충분한 동전이 없다면 배열 coin에 있는 만큼만 뺀다.)
+            // 가지고 있는 동전의 갯수를 전부 이용해야 하는 경우
             if(coinNum>=coin[i]){
                 coinNum = coin[i];
                 coin[i] = 0;
             }
+            // 가지고 있는 동전의 갯수를 전부 이용하지 않아도 되는 경우
             else coin[i] = coin[i]-coinNum;
 
-//            3. 금액에서 동전의 개수(coinNum)와 동전단위를 곱한 값을 뺀다.
+//          3. 금액에서 동전의 개수(coinNum)와 동전단위를 곱한 값을 뺀다.
             money = money - coinNum*coinUnit[i];
-//
+
+            /* 삼항ㅡ연산자를 이용하여 풀이하는 경우
+            coinNum = money/coinUnit[i]<coin[i]?money/coinUnit[i]:coin[i];
+            System.out.println(coinUnit[i]+"원: "+coinNum);
+            coin[i] -= coinNum;
+            money -= coinUnit[i]*coinNum;*/
+
             System.out.println(coinUnit[i]+"원: "+coinNum);
         }
 

@@ -10,10 +10,10 @@ public class p6 {
         int[] coinUnit = {500, 100, 50, 10};
 
         int money = 2680;
-        System.out.println("money="+money);
+        System.out.println("money = "+money);
 
         for(int i=0;i<coinUnit.length;i++) {
-            int a= coinUnit[i];
+            int a = coinUnit[i];
             coinUnit[i] = money/a;
             money = money % a;
             System.out.println(a+"원 : "+coinUnit[i]);

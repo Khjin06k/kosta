@@ -20,9 +20,12 @@ public class p4 {
                 count++;
             }
         }
-        average = total/(float)count;
 
-        System.out.println("totat="+total);
-        System.out.println("average="+average);
+        // average는 float 형태
+        // 따라서 둘 다 int형인 total과 count 중 하나를 float 형태로 변경해야 함
+        average = (float)total/count;
+
+        System.out.println("totat = "+total);
+        System.out.println("average = "+average);
     }
 }

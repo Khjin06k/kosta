@@ -12,20 +12,26 @@ public class Practice9 {
         int[][] arr = new int[size][size];
 
         // 배열의 첫 행을 1로 초기화
-        for(int i = 0; i<arr.length; i++){
-            arr[0][i] = 1;
-        }
+        arr[0][0] = 1;
+         /*for(int i = 0; i<arr.length; i++){
 
-        // 파스칼 삼각형이 될 수 있도록 입력
+            만약 첫번째 열과 대각선을 1로 초기화 하고 싶다면 아래와 같이 for문 진행
+            arr[i][0] = 1;
+            arr[i][i] = 1;
+
+        }*/
+
+        // 파스칼 삼각형이 될 수 있도록 입력 >> 자신을 기준으로 자신의 위 요소와 위의 왼쪽 요소를 합함
         for(int i = 1; i<arr.length; i++){
             for(int j = 0; j<=i; j++){
-                if(j==0) arr[i][j] = arr[i-1][j];
-                else if(j==i) arr[i][j] = 1;
-                else arr[i][j] = arr[i-1][j]+arr[i-1][j-1];
+                if(j==0) arr[i][j] = arr[i-1][j]; // 맨 첫번재 열이라면 왼쪽 요소가 없어 윗 요소만 넣으면 됨
+                else if(j==i) arr[i][j] = 1; // 행의 마지막 요소라면 1이 되어야 함(대각선)
+                else arr[i][j] = arr[i-1][j]+arr[i-1][j-1]; // 자신을 기준으로 위 요소와 위의 왼쪽 요소를 더한다.
             }
         }
 
-        // 파스칼 삼격형 출력
+        // 파스칼 삼격형 출력 >> 아래로 갈수록 넓어지는 삼각형 형태 출력이기 때문에 행이 커질수록 열도 같이 커진다
+        // 즉, 행과 열이 같이 커지기 때문에  i와 j가 같이 커지면서 열이 행보다 커지지 않도록 하면 됨
         for(int i = 0; i<arr.length; i++){
             for(int j = 0; j<=i; j++){
                 System.out.print(arr[i][j]+"\t");

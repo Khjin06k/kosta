@@ -23,7 +23,7 @@ public class Practice9 {
 
         // 파스칼 삼각형이 될 수 있도록 입력 >> 자신을 기준으로 자신의 위 요소와 위의 왼쪽 요소를 합함
         for(int i = 1; i<arr.length; i++){
-            for(int j = 0; j<=i; j++){
+            for(int j = 0; j<=i; j++){ // 대각선 요소를 1로 초기화 했다면 i와 j가 동일하지 않아도 됨
                 if(j==0) arr[i][j] = arr[i-1][j]; // 맨 첫번재 열이라면 왼쪽 요소가 없어 윗 요소만 넣으면 됨
                 else if(j==i) arr[i][j] = 1; // 행의 마지막 요소라면 1이 되어야 함(대각선)
                 else arr[i][j] = arr[i-1][j]+arr[i-1][j-1]; // 자신을 기준으로 위 요소와 위의 왼쪽 요소를 더한다.

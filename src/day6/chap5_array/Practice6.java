@@ -24,5 +24,31 @@ public class Practice6 {
             }
             System.out.println();
         }
+
+        /* 강사님 코드
+        // 배열 생성
+        int[][] matrix = new int[5][6];
+
+        // 첫 행을 1로 초기화
+        for(int i = 0; i<matrix[0].length; i++){
+            matrix[0][i] = 1;
+        }
+
+        // 배열에서 위와 왼쪽을 더해 값 저장
+        for(int i = 1; i<matrix.length; i++){
+            for(int j = 1; j<matrix[i].length; j++){
+                matrix[i][j] = matrix[i-1][j] + matrix[i][j-1];
+             }
+         }
+
+         // 배열 출력
+         for(int i = 0; i<matrix.length; i++){
+            for(int j = 0; j<matrix[i].length; j++){
+                System.out.print(matrix[i][j]);
+            }
+            System.out.println();
+         }
+
+        */
     }
 }

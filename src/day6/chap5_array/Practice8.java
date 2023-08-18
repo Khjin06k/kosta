@@ -29,6 +29,23 @@ public class Practice8 {
             if(max < arr[i]) max = arr[i];
         }
 
+        // 배열을 사용하지 않고 입력을 받음과 동시에 비교
+        /*
+        int input = 0;
+        int max = 0;
+        int min = 0
+        for(int i = 0; i<dataSize; i++){
+            input = sc.nextInt();
+            if(i==0){
+                min = input;
+                max = input;
+            }else{
+                if(min > input) min = input;
+                if(max < input) max = input;
+            }
+        }
+         */
+
         System.out.println("최솟값 : " + min);
         System.out.println("최댓값 : " + max);
     }

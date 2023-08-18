@@ -11,13 +11,13 @@ public class Practice9 {
         int size = sc.nextInt();
         int[][] arr = new int[size][size];
 
-        // 배열의 첫 행을 1로 초기화
+        // 배열의 첫번째 요소만을 1로 초기화
         arr[0][0] = 1;
-         /*for(int i = 0; i<arr.length; i++){
 
+         /*for(int i = 0; i<arr.length; i++){
             만약 첫번째 열과 대각선을 1로 초기화 하고 싶다면 아래와 같이 for문 진행
-            arr[i][0] = 1;
-            arr[i][i] = 1;
+            arr[i][0] = 1; // 첫번째 열을 1로 초기화
+            arr[i][i] = 1; // 대각선을 1로 초기화
 
         }*/
 

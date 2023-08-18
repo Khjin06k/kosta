@@ -17,6 +17,8 @@ public class Practice4 {
             num = sc.nextInt();
             if(num != 0){
                 count[num/10]++;
+            }else if(num>=100) {
+                System.out.println("조건에 맞지 않습니다. 다시 입력하세요.");
             }else{
                 for(int i = 0; i<count.length; i++){
                     System.out.println(i + ": " + count[i]);

@@ -29,7 +29,8 @@ public class Practice5 {
         // 학생들의 점수 출력하기
         System.out.println("\t국어\t영어\t수학\t총점");
         for(int i = 0; i<score.length; i++){
-            System.out.print((i+1)+"번\t");
+            if(i==score.length-1) System.out.print("평균\t"); // 마지막 줄을
+            else System.out.print((i+1)+"번\t");
             for(int j = 0; j< score.length; j++){
                 if(i==score[i].length-1){
                     if(j==score.length-1) continue; // 맨 마지막 0은 출력하지 않음

@@ -67,18 +67,21 @@ class Bank{
         }
     }
 
+    // 과제1
+    // id 찾아서 정보 출력
     void accountInfo(String id){
         int idx =0;
         for(int i = 0; i<accCnt; i++){
             if(accs[i].id.equals(id)){
                 idx = i;
-                break;
+                break; // id와 동일한 값을 찾으면 반복문을 돌 필요 없음
             }
         }
         System.out.println("계좌번호 : " + accs[idx].id + ", 이름 : " + accs[idx].name + ", 잔액 : " + accs[idx].balance);
     }
 
-    // 입금
+    // 과제2
+    // 입금 >> id를 찾는것은 accountInfo와 동일하며 balance 값 관련 코드 추가
     void deposit(String id, int num){
         int idx =0;
         for(int i = 0; i<accCnt; i++){
@@ -90,7 +93,8 @@ class Bank{
         }
     }
 
-    // 출금
+    // 과제3
+    // 출금 >> id를 찾는것은 accountInfo와 동일하며 balance 값 관련 코드 추가
     void withdraw(String id, int num){
         int idx =0;
         for(int i = 0; i<accCnt; i++){
@@ -102,6 +106,3 @@ class Bank{
         }
     }
 }
-
-
-

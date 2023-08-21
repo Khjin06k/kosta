@@ -17,6 +17,14 @@ public class OOPTest10 {
         // 계좌번호 : 10001, 이름 : 고길동, 잔액 : 100000
         bank.accountInfo("10001");
 
+        // 계좌번호 : 10001, 이름 : 고길동, 잔액 : 110000
+        bank.deposit("10001", 10000);
+        bank.accountInfo("10001");
+
+        // 계좌번호 : 10001, 이름 : 고길동, 잔액 : 105000
+        bank.withdraw("10001", 5000);
+        bank.accountInfo("10001");
+
     }
 
 }
@@ -60,11 +68,38 @@ class Bank{
     }
 
     void accountInfo(String id){
-        int num =0;
+        int idx =0;
         for(int i = 0; i<accCnt; i++){
-            if(accs[i].id.equals(id)) num = i;
+            if(accs[i].id.equals(id)){
+                idx = i;
+                break;
+            }
         }
-        System.out.println("계좌번호 : " + accs[num].id + ", 이름 : " + accs[num].name + ", 잔액 : " + accs[num].balance);
+        System.out.println("계좌번호 : " + accs[idx].id + ", 이름 : " + accs[idx].name + ", 잔액 : " + accs[idx].balance);
+    }
+
+    // 입금
+    void deposit(String id, int num){
+        int idx =0;
+        for(int i = 0; i<accCnt; i++){
+            if(accs[i].id.equals(id)){
+                idx = i;
+                accs[i].balance += num;
+                break;
+            }
+        }
+    }
+
+    // 출금
+    void withdraw(String id, int num){
+        int idx =0;
+        for(int i = 0; i<accCnt; i++){
+            if(accs[i].id.equals(id)){
+                idx = i;
+                if(accs[i].balance > num) accs[i].balance -= num;
+                break;
+            }
+        }
     }
 }
 

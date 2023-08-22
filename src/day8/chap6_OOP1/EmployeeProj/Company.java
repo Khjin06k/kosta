@@ -9,15 +9,33 @@ public class Company {
         emps[empCnt++] = emp;
     }
 
-    void setBonus(int id, long pay){
+    /*void setBonus(int id, long pay){
         for(int i = 0; i<empCnt; i++){
             if(emps[i].id == id) emps[i].pay += pay;
         }
+    }*/
+
+    Employee searchEmp(int id){
+        for(int i = 0; i<empCnt; i++){
+            if(emps[i].id == id){
+                return emps[i];
+            }
+        }
+        return null;
+    }
+
+    void setBonus(int id, long pay){
+        Employee empById = searchEmp(id);
+        if(empById == null){
+            System.out.println("존재하지 않는 사원입니다.");
+            return;
+        }
+        else empById.pay += pay;
     }
 
     void allEmployeeInfo(){
         for(int i = 0; i<empCnt; i++){
-            System.out.println("사번 : " + emps[i].id +  " 이름 : " + emps[i].name + " 부서 : " + emps[i].dep + " 급여 : " + emps[i].pay);
+            System.out.println("사번 : " + emps[i].id +  ", 이름 : " + emps[i].name + ", 부서 : " + emps[i].dep + ", 급여 : " + emps[i].pay);
         }
     }
 
@@ -51,5 +69,5 @@ public class Company {
 사번 : 10001, 이름 : 홍길동, 부서 : 홍보부, 급여 : 5000000
 사번 : 10002, 이름 : 고길동, 부서 : 총무부, 급여 : 3500000
 사번 : 10003, 이름 : 하길동, 부서 : 개발부, 급여 : 4000000
-총금여액 : 14500000
+총금여액 : 13500000
  */

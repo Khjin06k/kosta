@@ -6,16 +6,30 @@ package practice.chap6;
 //반환타입 : int[]
 // 매개변수 : int[] arr - 정수값이 담긴 배열
 
+import java.util.Arrays;
+
 public class P20 {
+    /*private static int[] shuffle(int[] original) {
+            for(int i = 0; i<original.length; i++){
+                int random1 = (int)(Math.random()*original.length);
+                int random2 = (int)(Math.random()*original.length);
+                int temp = original[random1];
+                original[random1] = original[random2];
+                original[random2] = temp;
+            }
+            return original;
+    }*/
+
     private static int[] shuffle(int[] original) {
-        for(int i = 0; i<original.length; i++){
-            int random1 = (int)(Math.random()*original.length);
-            int random2 = (int)(Math.random()*original.length);
-            int temp = original[random1];
-            original[random1] = original[random2];
-            original[random2] = temp;
+        int[] result = Arrays.copyOf(original, original.length);
+        for(int i = 0; i<result.length; i++){
+            int random1 = (int)(Math.random()*result.length);
+            int random2 = (int)(Math.random()*result.length);
+            int temp = result[random1];
+            result[random1] = result[random2];
+            result[random2] = temp;
         }
-        return original;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -23,5 +37,6 @@ public class P20 {
         System.out.println(java.util.Arrays.toString(original));
         int[] result = shuffle(original);
         System.out.println(java.util.Arrays.toString(result));
+        System.out.println(java.util.Arrays.toString(original));
     }
 }

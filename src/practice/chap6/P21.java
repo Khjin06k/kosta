@@ -6,7 +6,10 @@ class MyTv {
     boolean isPowerOn;
     int channel;
     int volume;
-    final int MAX_VOLUME = 100; final int MIN_VOLUME = 0; final int MAX_CHANNEL = 100; final int MIN_CHANNEL = 1;
+    final int MAX_VOLUME = 100;
+    final int MIN_VOLUME = 0;
+    final int MAX_CHANNEL = 100;
+    final int MIN_CHANNEL = 1;
     void turnOnOff() {
         // (1) isPowerOn의 값이 true면 false로, false면 true로 바꾼다.
         isPowerOn = !isPowerOn;
@@ -24,6 +27,10 @@ class MyTv {
         // 만일 channel이 MAX_CHANNEL이면, channel의 값을 MIN_CHANNEL로 바꾼다.
         if(channel==MAX_CHANNEL) channel = MIN_CHANNEL;
         else channel++;
+        /* 아래 Down도 동일
+        channel++;
+        if(channel>MAX_CHANNEL) channel = MIN_CHANNEL;
+         */
      }
      void channelDown () {
     // (5) channel의 값을 1감소시킨다.

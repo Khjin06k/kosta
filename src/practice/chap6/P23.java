@@ -6,14 +6,23 @@ package practice.chap6;
 //반환타입 : int
 //매개변수 : int[] arr - 최대값을 구할 배열
 
+import java.util.Arrays;
+
 public class P23 {
     static int max(int[] arr){
         if(arr == null || arr.length == 0) return -99999;
+
+        /* for문을 돌려서 max보다 클 경우 max값을 갱신
         int max = arr[0];
         for(int i = 1; i<arr.length; i++){
             if(max < arr[i]) max = arr[i];
         }
-        return max;
+        return max;*/
+
+        // 정렬 후 마지막 배열 요소 출력
+        Arrays.sort(arr);
+        return arr[arr.length-1];
+
     }
     public static void main(String[] args) {
         int[] data = {3,2,9,4,7};

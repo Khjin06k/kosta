@@ -1,4 +1,4 @@
-package day8.chap6_OOP1;
+package day8.chap6_OOP1.Test;
 
 class Person{
     int age;

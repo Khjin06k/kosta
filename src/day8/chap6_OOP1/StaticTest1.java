@@ -1,7 +1,5 @@
 package day8.chap6_OOP1;
 
-import javax.print.PrintService;
-
 class Person{
     int age;
     String name;

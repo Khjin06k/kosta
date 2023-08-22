@@ -34,6 +34,8 @@ class Account1{
     String name;
     int balance;
 
+    Account1(){} // 기본 생성자 생성
+
     Account1(String id, String name, int balance){
         this.id = id;
         this.name = name;

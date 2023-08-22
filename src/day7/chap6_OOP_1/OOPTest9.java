@@ -26,6 +26,8 @@ class Account{
     String name;
     int balance;
 
+    Account(){} // 기본 생성자 생성
+
     // 생성자 생성
     Account(String id, String name, int balance){
         // 변수의 이름이 같을 경우 this를 이용

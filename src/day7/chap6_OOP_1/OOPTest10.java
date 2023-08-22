@@ -34,6 +34,12 @@ class Account1{
     String name;
     int balance;
 
+    Account1(String id, String name, int balance){
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+    }
+
     String info(){
         return "계좌번호 : " + id + ", 이름 : " + name + ", 잔액 : " +balance;
     }
@@ -53,10 +59,11 @@ class Bank{
 
     // makeAccount 작성하기
     void makeAccount(String id, String name, int balance){
-        Account1 acc = new Account1();
-        acc.id = id;
+        // 위에서 생성자를 생성하여 생성과 동시에 초기화 진행
+        Account1 acc = new Account1(id, name, balance);
+       /* acc.id = id;
         acc.name = name;
-        acc.balance = balance;
+        acc.balance = balance;*/
 
         accs[accCnt++] = acc;
     }

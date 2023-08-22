@@ -32,6 +32,12 @@ class Person1{
         /*age = a;
         name = "none";*/
     }
+
+    Person1(Person1 p){}
+
+    /*String info(Person1 this){
+        return "이름 : " + this.name + ", 나이 : " + this.age;
+    }*/
 }
 public class ContructorTest1 {
     public static void main(String[] args) {
@@ -44,5 +50,9 @@ public class ContructorTest1 {
         Person1 per3 = new Person1("차길동");
 
         Person1 per4 = new Person1(40);
+
+        Person1 per5 = new Person1(per1); // Person을 매개변수로 가지는 생성자도 생성 가능
+
+        //per1.info(); // Person.info(per1) 으로 호출 >>
     }
 }

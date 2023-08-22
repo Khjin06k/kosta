@@ -9,10 +9,11 @@ package practice.chap6;
 public class P20 {
     private static int[] shuffle(int[] original) {
         for(int i = 0; i<original.length; i++){
-            int random = (int)(Math.random()*original.length);
-            int temp = original[random];
-            original[random] = original[i];
-            original[i] = temp;
+            int random1 = (int)(Math.random()*original.length);
+            int random2 = (int)(Math.random()*original.length);
+            int temp = original[random1];
+            original[random1] = original[random2];
+            original[random2] = temp;
         }
         return original;
     }

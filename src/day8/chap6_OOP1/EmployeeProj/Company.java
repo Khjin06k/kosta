@@ -30,7 +30,7 @@ public class Company {
             System.out.println("존재하지 않는 사원입니다.");
             return;
         }
-        else empById.pay += pay;
+        empById.pay += pay;
     }
 
     void allEmployeeInfo(){

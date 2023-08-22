@@ -5,6 +5,7 @@ public class Employee {
     String name;
     String dep;
     long pay;
+    long bonus;
 
     Employee(int id, String name, String dep, long pay){
         this.id = id;

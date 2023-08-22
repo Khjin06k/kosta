@@ -40,8 +40,8 @@ public class Company {
         }
     }
     // 전체 급여 조회
-    int getTotalPay(){
-        int total = 0;
+    long getTotalPay(){
+        long total = 0;
         for(int i = 0; i<empCnt; i++){
             total += emps[i].pay;
         }

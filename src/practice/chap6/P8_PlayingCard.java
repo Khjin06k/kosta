@@ -19,5 +19,5 @@ public class P8_PlayingCard {
 /*
 클래스 변수 (static 변수) : width, height
 인스턴스 변수 : kind, num
-지역 변수 : k, n
+지역 변수 : k, n, card, args
  */

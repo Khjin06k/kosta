@@ -5,6 +5,7 @@ public class Company {
     Employee[] emps = new Employee[100];
     int empCnt;
 
+    // 회원 등록
     void enter(Employee emp){
         emps[empCnt++] = emp;
     }
@@ -14,7 +15,7 @@ public class Company {
             if(emps[i].id == id) emps[i].pay += pay;
         }
     }*/
-
+    // 회원 찾기 >> 찾아서 리턴, 없으면 null
     Employee searchEmp(int id){
         for(int i = 0; i<empCnt; i++){
             if(emps[i].id == id){
@@ -23,7 +24,7 @@ public class Company {
         }
         return null;
     }
-
+    // 보너스
     void setBonus(int id, long pay){
         Employee empById = searchEmp(id);
         if(empById == null){
@@ -32,13 +33,13 @@ public class Company {
         }
         empById.pay += pay;
     }
-
+    // 전체 사원 조회
     void allEmployeeInfo(){
         for(int i = 0; i<empCnt; i++){
             System.out.println("사번 : " + emps[i].id +  ", 이름 : " + emps[i].name + ", 부서 : " + emps[i].dep + ", 급여 : " + emps[i].pay);
         }
     }
-
+    // 전체 급여 조회
     int getTotalPay(){
         int total = 0;
         for(int i = 0; i<empCnt; i++){

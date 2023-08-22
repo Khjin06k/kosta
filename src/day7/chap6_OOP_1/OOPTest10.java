@@ -70,39 +70,77 @@ class Bank{
     // 과제1
     // id 찾아서 정보 출력
     void accountInfo(String id){
-        int idx =0;
+        int idx =-1;
         for(int i = 0; i<accCnt; i++){
             if(accs[i].id.equals(id)){
                 idx = i;
                 break; // id와 동일한 값을 찾으면 반복문을 돌 필요 없음
             }
         }
-        System.out.println("계좌번호 : " + accs[idx].id + ", 이름 : " + accs[idx].name + ", 잔액 : " + accs[idx].balance);
+        if(idx == -1) System.out.println("계좌번호가 틀립니다.");
+        else System.out.println("계좌번호 : " + accs[idx].id + ", 이름 : " + accs[idx].name + ", 잔액 : " + accs[idx].balance);
+
+        /* 강사님 코드
+        /* (1)
+        Account acc = null;
+        for(int i = 0; i<accCnt; i++){
+            if(accs[i].id.equals(id){
+                acc = accs[i];
+                break;
+            }
+        } deposit과 withdraw에서 사용하는 공통 코드이므로 메서드로 따로 분리*/
+        /*
+        Account acc = searchAccById(id);
+        if(acc == null) System.out.println("계좌번호가 틀립니다");
+        else System.out.println(acc.info); // >> Account를 저장한다면 info를 사용할 수 있기 때문에 더 간단한 코드 작성이 가능함.
+        * */
     }
+
+    /*
+    Account searchAccById(String id){
+        for(int i = 0; i<accCnt; i++){
+            if(accs[i].id.equals(id){
+                reurn accs[i];
+            }
+        }
+        return null;
+    }
+    * */
 
     // 과제2
     // 입금 >> id를 찾는것은 accountInfo와 동일하며 balance 값 관련 코드 추가
     void deposit(String id, int num){
-        int idx =0;
         for(int i = 0; i<accCnt; i++){
             if(accs[i].id.equals(id)){
-                idx = i;
                 accs[i].balance += num;
                 break;
             }
         }
+        /* 강사님 코드
+        Account acc = searchAccById(id);
+        if(acc == null) {
+            System.out.println("계좌번호가 틀립니다");
+            return;
+        }else acc.deposit(num); >> Account에 있는 메서드 사용
+         */
     }
 
     // 과제3
     // 출금 >> id를 찾는것은 accountInfo와 동일하며 balance 값 관련 코드 추가
     void withdraw(String id, int num){
-        int idx =0;
         for(int i = 0; i<accCnt; i++){
             if(accs[i].id.equals(id)){
-                idx = i;
                 if(accs[i].balance > num) accs[i].balance -= num;
                 break;
             }
         }
+
+        /* 강사님 코드
+        Account acc = searchAccById(id);
+        if(acc == null) {
+            System.out.println("계좌번호가 틀립니다");
+            return;
+        }else acc.withdraw(num); >> Account에 있는 메서드 사용
+         */
     }
 }

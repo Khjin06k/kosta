@@ -20,7 +20,7 @@ class Derived extends Base{
     void method3(){} // 4
 }
 
-public class inheritTest2 {
+public class InheritTest2 {
     public static void main(String[] args) {
         Base b = new Base();
         b.bnum = 10;

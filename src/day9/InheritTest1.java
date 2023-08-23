@@ -37,7 +37,7 @@ class Student extends Person{
         return super.info()+", 전공 : " + major + ", 학년 : " + grade;
     }
 }
-public class inheritTest1 {
+public class InheritTest1 {
     public static void main(String[] args) {
         // 상속을 받기 때문에 자식 객체를 통해 부모 객체의 변수들과 메서드를 가져와 사용할 수 있음
 

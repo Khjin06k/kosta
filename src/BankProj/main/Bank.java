@@ -1,4 +1,6 @@
-package BankProj;
+package BankProj.main;
+
+import BankProj.acc.Account;
 
 import java.util.Scanner;
 
@@ -37,7 +39,7 @@ public class Bank {
     // 계좌번호에 따른 사용자 조회
     Account searchAccById(String id){
         for(int i = 0; i<accCnt; i++){
-            if(accs[i].id.equals(id)){
+            if(accs[i].getId().equals(id)){
                 return accs[i];
             }
         }
@@ -87,7 +89,7 @@ public class Bank {
     // 전체 계좌 조회
     void allAccountInfo(){
         for(int i = 0; i<accCnt; i++){ // 전체 배열을 돌릴 필요 없이 값이 존재하는 곳 까지만 반복을 돌리기 위해 accCnt 만큼만 반복 진행
-            System.out.println("계좌번호 : " + accs[i].id + ", 이름 : " + accs[i].name + ", 잔액 : " + accs[i].balance);
+            System.out.println("계좌번호 : " + accs[i].getId() + ", 이름 : " + accs[i].getName() + ", 잔액 : " + accs[i].getBalance());
         }
     }
 

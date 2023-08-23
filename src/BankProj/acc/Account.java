@@ -9,11 +9,16 @@ public class Account {
     public String getId(){
         return id;
     }
+
     public String getName(){
         return name;
     }
+
     public int getBalance(){
         return balance;
+    }
+    public void setBalance(int balance){
+        this.balance = balance;
     }
 
     Account(){} // 기본 생성자 생성

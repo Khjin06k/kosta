@@ -1,4 +1,6 @@
-package day8.chap6_OOP1.EmployeeProj;
+package day8.chap6_OOP1.EmployeeProj.Com;
+
+import day8.chap6_OOP1.EmployeeProj.Employee;
 
 public class Company {
 
@@ -18,7 +20,7 @@ public class Company {
     // 회원 찾기 >> 찾아서 리턴, 없으면 null
     Employee searchEmp(int id){
         for(int i = 0; i<empCnt; i++){
-            if(emps[i].id == id){
+            if(emps[i].getId() == id){
                 return emps[i];
             }
         }
@@ -31,13 +33,13 @@ public class Company {
             System.out.println("존재하지 않는 사원입니다.");
             return;
         }
-        empById.bonus += bonus; // Employee 클래스에서 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
+        empById.setBonus(empById.getBonus() + bonus); // Employee 클래스에서 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
     }
     // 전체 사원 조회
     void allEmployeeInfo(){
         for(int i = 0; i<empCnt; i++){
-            System.out.println("사번 : " + emps[i].id +  ", 이름 : " + emps[i].name + ", 부서 : " + emps[i].dep + ", 급여(보너스 포함) : " + (emps[i].pay+emps[i].bonus));
-            System.out.println("사번 : " + emps[i].id +  ", 이름 : " + emps[i].name + ", 부서 : " + emps[i].dep + ", 급여(보너스 따로) : " + emps[i].pay + ", 보너스 : " +emps[i].bonus);
+            System.out.println("사번 : " + emps[i].getId() +  ", 이름 : " + emps[i].getName() + ", 부서 : " + emps[i].getDep()+ ", 급여(보너스 포함) : " + (emps[i].getPay()+emps[i].getBonus()));
+            System.out.println("사번 : " + emps[i].getId() +  ", 이름 : " + emps[i].getName() + ", 부서 : " + emps[i].getDep() + ", 급여(보너스 따로) : " + emps[i].getPay() + ", 보너스 : " +emps[i].getBonus());
 
         }
     }
@@ -45,7 +47,7 @@ public class Company {
     long getTotalPay(){
         long total = 0;
         for(int i = 0; i<empCnt; i++){
-            total += emps[i].pay + emps[i].bonus; // Employee 클래스에 급여와 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
+            total += emps[i].getPay() + emps[i].getBonus(); // Employee 클래스에 급여와 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
         }
         return total;
     }

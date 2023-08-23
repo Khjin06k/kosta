@@ -17,6 +17,7 @@ class Student extends Person{
 
     String major;
     int grade;
+    Student(){}
 
     Student(String name, int age){
         this.name = name;
@@ -24,8 +25,7 @@ class Student extends Person{
     }
 
     Student(String name, int age, String major, int grade){
-        this.name = name;
-        this.age = age;
+        super(name, age); // 부모 클래스의 생성자 Person(String name, int age)를 가져와서 사용
         this.major = major;
         this.grade = grade;
     }
@@ -62,5 +62,7 @@ public class InheritTest1 {
 
         Student student2 = new Student("고길동", 25, "산업공학", 3);
         System.out.println(student2.info());
+
+        Student student3 = new Student("돈많은", 40, "금융", 3);
     }
 }

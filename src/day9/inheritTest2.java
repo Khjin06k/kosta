@@ -11,6 +11,11 @@ class Derived extends Base{
     int dnum;
     void method1(int n){} // 6
     //void method2(){} // 3
+    void method2(){
+        method1(); // 가능
+        super.method2(); // super가 없으면 자기 자신을 계속 호출하기 때문에 super을 통해 부모의 메서드를 가져와야 허ㅏㅁ
+        //method2(); // 잘못 사용될 확률이 매우 높음
+    }
     void method2(int n){} // 5
     void method3(){} // 4
 }

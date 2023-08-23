@@ -22,8 +22,11 @@ class Child extends Parent{
     }
 }
 public class InheritTest3 {
-    Parent p = new Parent();
-    Child c = new Child();
+    public static void main(String[] args) {
+        Parent p = new Parent();
+        Child c = new Child();
 
-    Child c1 = new Child(10, 20);
+        Child c1 = new Child(10, 20);
+    }
+
 }

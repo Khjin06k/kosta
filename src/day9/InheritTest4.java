@@ -9,4 +9,7 @@ class B extends A{
     }
 }
 public class InheritTest4 {
+    public static void main(String[] args) {
+
+    }
 }

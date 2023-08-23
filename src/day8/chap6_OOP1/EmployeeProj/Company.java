@@ -31,7 +31,7 @@ public class Company {
             System.out.println("존재하지 않는 사원입니다.");
             return;
         }
-        empById.bonus += bonus;
+        empById.bonus += bonus; // Employee 클래스에서 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
     }
     // 전체 사원 조회
     void allEmployeeInfo(){
@@ -45,7 +45,7 @@ public class Company {
     long getTotalPay(){
         long total = 0;
         for(int i = 0; i<empCnt; i++){
-            total += emps[i].pay + emps[i].bonus;
+            total += emps[i].pay + emps[i].bonus; // Employee 클래스에 급여와 보너스를 더해주는 메서드를 만든 후 해당 메서드를 호출해도 됨
         }
         return total;
     }

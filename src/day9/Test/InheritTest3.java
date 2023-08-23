@@ -1,4 +1,4 @@
-package day9;
+package day9.Test;
 class Parent{
     int n;
     Parent(){

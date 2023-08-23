@@ -1,4 +1,4 @@
-package day9;
+package day9.Test;
 class Person{
     int age;
     String name;

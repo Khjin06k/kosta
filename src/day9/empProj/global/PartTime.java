@@ -1,4 +1,4 @@
-package day9.empProj;
+package day9.empProj.global;
 
 public class PartTime extends Employee{
     int time; // 근무 시간

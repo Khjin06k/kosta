@@ -1,4 +1,4 @@
-package day9.empProj;
+package day9.empProj.global;
 
 public class Permanent extends Employee{
     int salary; // 급여

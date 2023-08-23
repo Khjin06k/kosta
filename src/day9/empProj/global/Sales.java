@@ -1,4 +1,4 @@
-package day9.empProj;
+package day9.empProj.global;
 
 public class Sales extends Permanent{
     int incentive; // 인센티브

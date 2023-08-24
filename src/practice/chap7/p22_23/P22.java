@@ -55,6 +55,10 @@ class Circle extends Shape{
 
     Circle(){}
     Circle(double r){
+        this(new Point(0, 0), r);
+    }
+    Circle(Point p, double r){
+        super(p);
         this.r = r;
     }
 
@@ -72,6 +76,10 @@ class Rectangle extends Shape{
     int height;
     Rectangle(){}
     Rectangle(int width, int height){
+        this(new Point(), width, height);
+    }
+    Rectangle(Point p, int width, int height){
+        super(p);
         this.width = width;
         this.height = height;
     }
@@ -84,7 +92,7 @@ class Rectangle extends Shape{
 
     // 정사각형인지 확인 여부 리턴
     boolean isSquare(){
-        if(width == height) return true;
+        if(width == height || width*height != 0) return true;
         return false;
     }
 }

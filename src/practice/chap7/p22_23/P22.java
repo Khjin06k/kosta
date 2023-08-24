@@ -58,6 +58,7 @@ class Circle extends Shape{
         this.r = r;
     }
 
+    // 상속받은 부모 클래스의 메서드 오버라이딩
     @Override
     double calcArea() {
         return r*r*(Math.PI);
@@ -75,11 +76,13 @@ class Rectangle extends Shape{
         this.height = height;
     }
 
+    // 상속받은 부모 클래스의 메서드 오버라이딩
     @Override
     double calcArea() {
         return width*height;
     }
 
+    // 정사각형인지 확인 여부 리턴
     boolean isSquare(){
         if(width == height) return true;
         return false;

@@ -6,6 +6,7 @@ public class P23 {
         double totalArea = 0;
         for(int i = 0; i<arr.length; i++){
             totalArea += arr[i].calcArea();
+            // calcArea()를 오버라이딩 했기 때문에 부모 클래스의 메서드가 아닌 자식 클래스에 있는 메서드가 실행
         }
         return totalArea;
     }

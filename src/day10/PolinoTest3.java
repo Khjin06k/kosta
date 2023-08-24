@@ -1,12 +1,13 @@
 package day10;
 class Base{
-    int x;
+    int x=1;
     void method(){
         System.out.println("Base method");
     }
 }
 class Derived extends Base{
-    int y;
+    int x = 2;
+    int y = 3;
     @Override
     void method() { // 오버라이딩 - 부모의 메서드를 수정(동일한 리턴타입, 동일한 이름)
         System.out.println("Derived mehtod");
@@ -40,5 +41,9 @@ public class PolinoTest3 {
             Derived derived2 = (Derived) base2; // 자식 객체를 생성한 것의 주소를 가지고 있는 것이 아닌 부모 객체를 생성한 것의 주소를 가지고 있기 때문에 에러는 안나지만 문제가 발생함
             derived2.y = 30;
         }
+
+        Base base3 = new Derived();
+        base3.method(); // 자식의 메서드 호출
+        System.out.println(base3.x); // 부모의 x 호출
     }
 }

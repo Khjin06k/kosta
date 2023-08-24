@@ -27,13 +27,16 @@ class SutdaDeck {
 
     // cards 배열을 무작위로 섞음
     public void shuffle(){
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<100; i++){
             int idx1 = (int)(Math.random()*20);
             int idx2 = (int)(Math.random()*20);
             SutdaCard tmp = cards[idx1];
             cards[idx2] = cards[idx1];
             cards[idx2] = tmp;
         }
+        /*
+        강사님 코드 >> 반복 횟수를 제외하고는 동일
+         */
     }
 
     // 매개변수로 주어진 인덱스의 cards를 반환

@@ -16,6 +16,18 @@ class SutdaDeck {
             if(num == 1 || num == 3 || num == 8) cards[i] = new SutdaCard(num, true);
             else cards[i] = new SutdaCard(num, false);
         }
+        /*
+        강사님 풀이
+        int length = CARD_NUM/2;
+        for(int i = 0; i<length; i++){
+            if((i+1) == 1 || (i+1) == 3|| (i+1) == 8){
+                cards[i] = new SutdaCard(i+1, true);
+            }else{
+                cards[i] = new SutdaCard(i+1, false);
+            }
+            cards[i+10] = SutdaCard(i+1, false);
+        }
+         */
     }
 }
 class SutdaCard {

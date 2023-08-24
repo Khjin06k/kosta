@@ -6,6 +6,7 @@ class Unit{
     void move(int x, int y){
         /* 지정된 위치로 이동 */
     }
+    // abstract void move(int x, int y); 로 한 뒤 나머지 클래스에 void move(int x, int y)를 해 놓은 후 정의해서 사용하도록 할 수도 있음 (움직이는 것이 다르다면)
     void stop(){
         /* 현재 위치에 정지 */
     }

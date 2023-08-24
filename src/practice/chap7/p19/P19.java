@@ -53,10 +53,9 @@ class Buyer {
             System.out.println("돈이 부족하여 "+ p.toString() + "을/를 살 수 없습니다.");
             return;
         }
-        else{
-            money -= p.price;
-            add(p);
-        }
+        // return이 아닐때만 아래 문장이 실행되기 때문에 else를 쓰지 않아도 됨
+        money -= p.price;
+        add(p);
     }
     void add(Product p) {
         /*
@@ -68,15 +67,20 @@ class Buyer {
          1.2 물건을 장바구니(cart)에 저장한다.그리고 i의 값을 1 증가시킨다.
         */
         if(i >= cart.length){
-            Product[] cartList = new Product[cart.length*2];
-            for(int j = 0; j<cart.length; j++){
+            Product[] cartList = Arrays.copyOf(cart, cart.length*2);
+            // Arrays.copyof를 사용하고 싶다면 크기까지 같이 결정되기 때문에 선언 및 복사 및 크기 지정까지 한 번에 해줘야 함
+            //Product[] cartList = new Product[cart.length*2];
+            /*for(int j = 0; j<cart.length; j++){
                 cartList[j] = cart[j];
-            }
-            //System.arraycopy(cartList, 0, cart, 0, cart.length);
+            }*/
+            System.arraycopy(cart, 0, cartList, 0, cart.length);
+            // arraycopy는 복사하고자 하는 배열이 앞으로 오고 복사한 것을 넣은 배열이 뒤로 간다.
+            //cartList = Arrays.copyOf(cart, cart.length);
+            // >> 배열의 크기가 다시 3으로 작아지기 때문에 사용할 수 없음
+            // (근데 배열의 크기를 지정하고나서 다시 줄어들 수 있는가?)
             cart = cartList;
-            cart[i++] = p;
         }
-        else cart[i++] = p;
+        cart[i++] = p;
 
     } // add(Product p)
     void summary() {
@@ -86,6 +90,7 @@ class Buyer {
         1.3 물건을 사고 남은 금액(money)를 출력한다.
          */
         int totalPrice = 0;
+        // 이름을 String 변수 하나를 선언한 후 totalPrice와 함께 입력받아서 저장한 후 출력해도 됨
         System.out.print("구입한 물건 : ");
         for(int j = 0; j<i; j++){
             if(j==i-1) System.out.println(cart[j].toString());

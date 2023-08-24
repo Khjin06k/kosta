@@ -11,7 +11,10 @@ package practice.chap7.p18;
 
 
 public class P18 {
-    static void action(Robot t){
+    static void action(Robot t){ // action이 동일한 클래스 내 메인에 있기 때문에 static을 작성해주어야 함
+        // 부모 타입이므로 오버라이딩을 했다면 자식 클래스 내 메서드를 가져올 수 있지만
+        // 오버라이딩을 하지 않았기 때문에 자식 클래스 내 메서드를 가지고 올 수 없음
+        // 따라서 다운 캐스팅을 진행해야 함. 따라서 instanceof를 사용해서 다운 캐스팅 여부를 확인한 후 다운 캐스팅을 진행하면 됨
         if(t instanceof DanceRobot) ((DanceRobot) t).dance();
         else if(t instanceof SingRobot) ((SingRobot) t).sing();
         else ((DrawRobot)t).draw();

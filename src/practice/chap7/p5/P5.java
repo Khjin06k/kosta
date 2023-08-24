@@ -5,14 +5,18 @@ class Product {
     int price; // 제품의 가격
     int bonusPoint; // 제품구매 시 제공하는 보너스점수
 
-    Product(){} // 추가 코드
+    Product(){} // 추가 코드 >> 부모 클래스에 기본 생성자를 생성
     Product(int price) {
         this.price = price;
         bonusPoint =(int)(price/10.0);
     }
 }
 class Tv extends Product {
-    Tv() {} // 에러가 나는 이유는 상속을 받고 있는 부모 클래스의 Product에 기본 생성자가 없기 때문에 발생하는 에러다.
+    Tv() {
+       // super(0); >> 부모 클래스의 생성자를 호출
+    } // 에러가 나는 이유는 상속을 받고 있는 부모 클래스의 Product에 기본 생성자가 없기 때문에 발생하는 에러다.
+    // 부모 클래스에 기본 생성자를 생성하거나 TV 안에 부모클래스의 생성자를 호출
+
     public String toString() {
         return "Tv";
     }

@@ -18,7 +18,7 @@ package practice.chap7.p22_23;
 import org.w3c.dom.css.Rect;
 
 abstract class Shape {
-    Point p;
+    Point p; // 원과 사각형은 모두 Point를 사용하기 때문에 Shape에 Point를 넣음
     Shape() {
         this(new Point(0,0));
     }
@@ -61,6 +61,8 @@ class Circle extends Shape{
     @Override
     double calcArea() {
         return r*r*(Math.PI);
+        // Math.PI에 있는 값으로 해야 정답과 동일하며,
+        // 3.14로 계산할 경우 93.64로 값이 다르게 나옴
     }
 }
 

@@ -92,7 +92,7 @@ class Rectangle extends Shape{
 
     // 정사각형인지 확인 여부 리턴
     boolean isSquare(){
-        if(width == height || width*height != 0) return true;
+        if(width == height && width*height != 0) return true;
         return false;
     }
 }

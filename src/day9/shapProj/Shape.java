@@ -18,4 +18,7 @@ public class Shape {
     public String info(){
         return "색(" + color+"), ";
     }
+    // info()를 추상 메서드로 남겨두고 Shape을 추상클래스로 설정해도 됨
+
+   // public abstract void draw();
 }

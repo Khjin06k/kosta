@@ -25,4 +25,8 @@ public class Point{ // 다른 클래스와 포함관계
         this.x = x;
         this.y = y;
     }
+    //포인터의 info를 만들어서 출력해도 됨
+   /* public String info(){
+        return "(" + x + ", "+ y +")";
+    }*/
 }

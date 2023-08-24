@@ -5,9 +5,9 @@ package practice.chap7.p10;
 // getter와 setter메서드를 추가하라.
 
 class MyTv2 {
-    boolean isPowerOn;
-    int channel;
-    int volume;
+    private boolean isPowerOn;
+    private int channel;
+    private int volume;
     final int MAX_VOLUME = 100;
     final int MIN_VOLUME = 0;
     final int MAX_CHANNEL = 100;

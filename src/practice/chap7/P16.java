@@ -1,7 +1,7 @@
 package practice.chap7;
 
 public class P16 {
-    // 다음 중 연산결과가 true가 아닌 것은? (모두 고르시오) b, e
+    // 다음 중 연산결과가 true가 아닌 것은? (모두 고르시오) e
 
     class Car {}
     class FireEngine extends Car{} //implements Movable {}

@@ -33,7 +33,16 @@ public class InterfaceTest3 {
         // 따라서 클릭 인터페이스를 상속받아서 내가 새로 구현한 것을 로그인 버튼에 넣어주는 것 >> 아래 메서드를 호출시켜줌
         loginBtn.click();
 
+        BasicButton joinBtn = new BasicButton();
+        joinBtn.addClickEventHandler(new IClick() {
+            // (5) 회원가입 버튼으로 위의 클래스를 만들지 않고 아래에서 바로 클래스를 생성함 (일회성이므로 익명 클래스 생성)
+            // new IClick이 부모 클래스명(인터페이스, 클래스 모두 올 수 있음) 이 오고 미완성 메서드이기 때문에 미완성 메서드는 알아서 오버라이딩하여 메서드를 만들어줌
+            // 이를 익명 클래스(이름이 없는 클래스) 혹은 내부 클래스(클래스 안에 클래스)
+            @Override
+            public void iClick() {
+                System.out.println("회원가입 처리");
+            }
+        });
 
-        
     }
 }

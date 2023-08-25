@@ -55,7 +55,7 @@ class Circle extends Shape{
 
     Circle(){}
     Circle(double r){
-        this(new Point(0, 0), r);
+        this(new Point(0, 0), r);  // 코드의 중복을 막기 위해 this를 통해 Circle(Point p, double r) 생성자를 호출
     }
     Circle(Point p, double r){
         super(p);

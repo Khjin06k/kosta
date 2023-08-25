@@ -1,4 +1,4 @@
-package day9.empProj.global;
+package empProj.global;
 
 public abstract class Employee {
     int id; // 사원 번호

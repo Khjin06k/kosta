@@ -20,6 +20,8 @@ public class SpecialAccount extends Account{
         this.grade = grade;
     }
 
-
+    public void info(Account sacc){
+        System.out.println("계좌번호 : " + sacc.id + ", 이름 : " + sacc.name + ", 잔액 : " + sacc.balance + ", 등급 : " + ((SpecialAccount)sacc).grade);
+    }
 
 }

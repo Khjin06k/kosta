@@ -28,7 +28,7 @@ public class Bank {
         System.out.println("[계좌 개설]");
         System.out.println("1. 일반 계좌");
         System.out.println("2. 특수 계좌");
-        System.out.println("선택 >> ");
+        System.out.print("선택 >> ");
         int sel = Integer.parseInt(sc.nextLine());
         if(sel == 1) makeAccount();
         else makeSpecialAccount();
@@ -128,7 +128,8 @@ public class Bank {
             System.out.println("계좌번호가 틀립니다.");
             return;
         }
-        acc.info(acc);
+        if(acc instanceof SpecialAccount) ((SpecialAccount) acc).info(acc);
+        else acc.info(acc);
     }
 
     // 전체 계좌 조회

@@ -59,7 +59,7 @@ public class Bank {
         String grade = sc.nextLine();
         // 등급을 잘못 입력 받았을 경우 잘못된 등급임을 알리기
         if(!grade.equals("V") && !grade.equals("G") && !grade.equals("S") && !grade.equals("N")){
-            System.out.println("잘못된 등급입니다.");
+            System.out.println("잘못된 등급입니다. Normal 등급으로 설정되었습니다.");
         }
         if(accCnt == accs.length) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
         else accs[accCnt++] = new SpecialAccount(id, name, money, grade); // 다형성 이용하여 부모 클래스 타입의 배열에 생성 가능
@@ -86,23 +86,10 @@ public class Bank {
         }
         System.out.print("입금액 : ");
         int money = Integer.parseInt(sc.nextLine());
-        if(acc instanceof SpecialAccount){
-            switch(((SpecialAccount) acc).getGrade()){
-                case "V" :
-                    money = (int)(money*1.04);
-                    break;
-                case "G" :
-                    money = (int)(money*1.03);
-                    break;
-                case "S" :
-                    money = (int)(money*1.02);
-                    break;
-                case "N" :
-                    money = (int)(money*1.01);
-                    break;
-            }
-            acc.deposit(money);
-        } else acc.deposit(money);
+        /*if(acc instanceof SpecialAccount){ // 오버라이딩했기 때문에 다운캐스팅을 해줄 필요가 없음
+           money = (int)(money * ((SpecialAccount)acc).moneys(acc));
+        }*/
+        acc.deposit(money);
     }
 
     // 출금
@@ -128,8 +115,7 @@ public class Bank {
             System.out.println("계좌번호가 틀립니다.");
             return;
         }
-        if(acc instanceof SpecialAccount) ((SpecialAccount) acc).info(acc);
-        else acc.info(acc);
+        acc.info(); // 오버라이딩 했기 때문에 다운캐스팅을 할 필요가 없음
     }
 
     // 전체 계좌 조회

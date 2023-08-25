@@ -31,8 +31,8 @@ public class Account {
         this.balance = balance;
     }
 
-    public void info(Account acc){
-        System.out.println("계좌번호 : " + acc.id + ", 이름 : " + acc.name + ", 잔액 : " + acc.balance);
+    public String info(){
+       return "계좌번호 : " + id + ", 이름 : " + name + ", 잔액 : " + balance;
     }
 
     public void deposit(int num){
@@ -42,4 +42,6 @@ public class Account {
     public void withdraw(int num){
         if(balance >= num) balance -= num;
     }
+
+    //public abstract double moneys(Account acc);
 }

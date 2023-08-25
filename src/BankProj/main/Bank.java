@@ -39,6 +39,11 @@ public class Bank {
         System.out.println("[계좌 개설]");
         System.out.print("계좌번호 : ");
         String id = sc.nextLine();
+        Account acc = searchAccById(id);
+        if(acc!=null){
+            System.out.println("중복된 계좌가 있습니다.");
+            return;
+        }
         System.out.print("이름 : ");
         String name = sc.nextLine();
         System.out.print("입금액 : ");
@@ -51,6 +56,11 @@ public class Bank {
         System.out.println("[특수 계좌 개설]");
         System.out.print("계좌 번호 : ");
         String id = sc.nextLine();
+        Account acc = searchAccById(id);
+        if(acc!=null){
+            System.out.println("중복된 계좌가 있습니다.");
+            return;
+        }
         System.out.print("이름 : ");
         String name = sc.nextLine();
         System.out.print("입금액 : ");

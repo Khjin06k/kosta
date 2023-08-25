@@ -40,7 +40,7 @@ public class SpecialAccount extends Account{
         }
     }
 
-    public SpecialAccount() {}
+    SpecialAccount() {}
 
     public SpecialAccount(String id, String name, int balance, String grade){
             super(id, name, balance);

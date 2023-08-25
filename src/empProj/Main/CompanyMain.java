@@ -21,7 +21,7 @@ public class CompanyMain {
 
         //com.regBusinessTrip(emp1); // 에러 - Permanent여서
         com.regBusinessTrip(emp2, 2); // Sales 출장 가능, 하루당 300,000원을 인센티브로 지급
-        com.regBusinessTrip(emp3, 3); // PartTime 출장 가능, (출장 시간(1일24시간)*payPerTime)원을 인센티브로 지급
+        com.regBusinessTrip(emp3, 1); // PartTime 출장 가능, (출장 시간(1일24시간)*payPerTime)원을 인센티브로 지급
 
         com.allEmployeeInfo();
         System.out.println("총 급여 : " + com.getTotalPay());

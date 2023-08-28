@@ -5,7 +5,7 @@ public class BankException extends Exception{
 
     public BankException(){}
     public BankException(String msg, BankError errCode){
-        super(msg); // 부모에게 정보를 넘겨력
+        super(msg); // 부모에게 정보를 넘김 >> Exception이 아닌 Object
         this.errCode = errCode;
     }
 

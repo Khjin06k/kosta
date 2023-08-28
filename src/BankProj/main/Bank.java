@@ -42,7 +42,7 @@ public class Bank{
         System.out.print("선택 >> ");
         int sel = Integer.parseInt(sc.nextLine());
         switch (sel){
-            case 1 : makeAccount();break;
+            case 1 : makeAccount(); break;
             case 2 : makeSpecialAccount(); break;
             default:
                 //try{
@@ -55,8 +55,8 @@ public class Bank{
                 //    selAccMenu();
                 //}
         }
-        if(sel == 1) makeAccount();
-        else makeSpecialAccount();
+        //if(sel == 1) makeAccount();
+        //else makeSpecialAccount();
     }
 
     // 계좌 개설
@@ -154,17 +154,16 @@ public class Bank{
             throw new BankException("계좌 오류", BankError.NOID);
         }
 
-        acc.info(); // 오버라이딩 했기 때문에 다운캐스팅을 할 필요가 없음
+        System.out.println(acc);; // 오버라이딩 했기 때문에 다운캐스팅을 할 필요가 없음
     }
 
     // 전체 계좌 조회
     void allAccountInfo(){
         for(int i = 0; i<accCnt; i++){ // 전체 배열을 돌릴 필요 없이 값이 존재하는 곳 까지만 반복을 돌리기 위해 accCnt 만큼만 반복 진행
             if(accs[i] instanceof SpecialAccount){
-                System.out.println("계좌번호 : " + accs[i].getId() + ", 이름 : " + accs[i].getName() + ", 잔액 : " + accs[i].getBalance() + ", 등급 : " + ((SpecialAccount) accs[i]).getGrade());
-
+                System.out.println((SpecialAccount)accs[i]);
             }
-            System.out.println("계좌번호 : " + accs[i].getId() + ", 이름 : " + accs[i].getName() + ", 잔액 : " + accs[i].getBalance());
+            System.out.println(accs[i]);
         }
     }
 

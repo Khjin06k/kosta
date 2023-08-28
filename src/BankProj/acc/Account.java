@@ -34,7 +34,8 @@ public class Account {
         this.balance = balance;
     }
 
-    public String info(){
+    @Override
+    public String toString(){
        return "계좌번호 : " + id + ", 이름 : " + name + ", 잔액 : " + balance;
     }
 

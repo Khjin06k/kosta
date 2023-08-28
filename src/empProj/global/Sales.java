@@ -26,5 +26,9 @@ public class Sales extends Permanent implements BusinessTrip{
     @Override
     public void reBusinessTrip(int n) {
         setIncentive(getIncentive()+300000*n); // 인센티브에 출장 비용을 더해 저장
+        /*
+        강사님 코드
+        incentive += day*300000;
+         */
     }
 }

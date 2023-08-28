@@ -39,5 +39,9 @@ public class PartTime extends Employee implements BusinessTrip{
     @Override
     public void reBusinessTrip(int n) {
         setTime(getTime()+(n*24)); // 일한 시간을 가져와 다시 세팅 진 >> 1일 출장 시간은 24시간이므로 n*24한 것을 시간으로 곱함
+        /*
+        강사님 코드
+        time += (day*24);
+         */
     }
 }

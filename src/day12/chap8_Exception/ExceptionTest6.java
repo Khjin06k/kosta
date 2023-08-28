@@ -1,4 +1,4 @@
-package day12;
+package day12.chap8_Exception;
 
 import java.io.IOException;
 

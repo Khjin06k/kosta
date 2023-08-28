@@ -1,4 +1,4 @@
-package day12;
+package day12.chap8_Exception;
 
 public class ExceptionTest2 {
     public static void main(String[] args) {

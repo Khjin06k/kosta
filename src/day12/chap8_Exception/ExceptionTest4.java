@@ -1,4 +1,4 @@
-package day12;
+package day12.chap8_Exception;
 
 public class ExceptionTest4 {
     public static void method() throws Exception{ // 메서드에서 Exception을 던저줄 수 있음

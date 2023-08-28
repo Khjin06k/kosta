@@ -1,5 +1,8 @@
 package BankProj.acc;
 
+import BankProj.exc.BankError;
+import BankProj.exc.BankException;
+
 public class Account {
     String id;
     String name;
@@ -35,12 +38,22 @@ public class Account {
        return "계좌번호 : " + id + ", 이름 : " + name + ", 잔액 : " + balance;
     }
 
-    public void deposit(int num){
-        balance += num;
+    public void deposit(int num) throws BankException{
+        //try{
+            if(num <=0) throw new BankException("입금 오류", BankError.MINUS);
+            balance += num;
+        //}catch (Exception e){
+        //    System.out.println(e);
+        //}
     }
 
-    public void withdraw(int num){
-        if(balance >= num) balance -= num;
+    public void withdraw(int num) throws BankException{
+        //try{
+            if(balance < num) throw new BankException("축금 오류", BankError.LACK);
+            balance -= num;
+        //}catch (Exception e){
+        //    System.out.println(e);
+        //}
     }
 
     //public abstract double moneys(Account acc);

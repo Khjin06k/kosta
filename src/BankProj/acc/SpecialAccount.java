@@ -1,5 +1,7 @@
 package BankProj.acc;
 
+import BankProj.exc.BankException;
+
 // 등급에 따라 차등으로 입금시마다 이자를 줌 >> 계좌 개설할 때가 아닌 입금시
 // 입금액의 퍼센트 : VIP - 0.04%, Gold - 0.03%, Silver - 0.02%, Normal - 0.01%
 // 정보 출력시 등급도 포함하여 출력
@@ -66,7 +68,7 @@ public class SpecialAccount extends Account{
     }*/
 
     @Override
-    public void deposit ( int money){
+    public void deposit ( int money) throws BankException {
             super.deposit((int) (Math.round(money * (1 + interest))));
     }
     @Override

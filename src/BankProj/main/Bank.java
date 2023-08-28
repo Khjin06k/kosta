@@ -6,7 +6,7 @@ import BankProj.acc.SpecialAccount;
 import java.util.Scanner;
 
 
-public class Bank {
+public class Bank{
     Account[] accs = new Account[100];
     int accCnt;
     Scanner sc = new Scanner(System.in);
@@ -146,6 +146,7 @@ public class Bank {
         int sel;
         while(true){
             sel = bank.menu();
+
             if(sel==0) break;
             switch(sel) {
                 case 1:

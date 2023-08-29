@@ -8,8 +8,8 @@ package practice.chap9;
 //int n - 반올림한 결과의 소수점 자리
 //[Hint] Math.round()와 Math.pow()를 이용하라.
 public class P8 {
-    static double round(double d, int n){
-        return Math.round(d*Math.pow(10, n))/Math.pow(10, n);
+    static double round(double d, int n){ // Math.round가 소수점 첫째자리에서 반올림을 하기 때문에 그만큼 10의 제곱수들을 곱해 올림한 후 다시 나눠주면 됨
+        return Math.round(d*Math.pow(10, n))/Math.pow(10, n); // Math.pow(10, n)이 반복이기 때문에 하나의 변수로 선언하여 활용해도 됨
     }
     public static void main(String[] args) {
         System.out.println(round(3.1415,1));

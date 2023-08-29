@@ -12,10 +12,10 @@ package practice.chap9;
 // 그리고 둘 중에 작은 값을 반환하는 Math.min(int a, int b)를 사용하라.
 public class P12 {
     static int getRand(int from, int to){
-        return (int)(Math.random() * Math.abs((to-from)+1))+Math.min(from, to);
+        return (int)(Math.random() * (Math.abs(to-from)+1))+Math.min(from, to);
     }
     public static void main(String[] args) {
         for(int i=0; i< 20; i++)
-            System.out.print(getRand(1,-3)+",");
+            System.out.print(getRand(-4,5)+",");
     }
 }

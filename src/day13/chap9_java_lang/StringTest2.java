@@ -1,5 +1,9 @@
 package day13.chap9_java_lang;
 
+import day9.shapProj.Point;
+
+import java.util.Scanner;
+
 public class StringTest2 {
     public static void main(String[] args) {
         String str = "Good Lock";
@@ -27,5 +31,24 @@ public class StringTest2 {
         for(int i = 0; i<fruitArr.length; i++){
             System.out.println(fruitArr[i]);
         }
+
+        String pineapple = fruitStr.substring(15, 24);
+        System.out.println(pineapple);
+
+        System.out.println("Y/N를 선택하세요 : ");
+        Scanner sc = new Scanner(System.in);
+        String answer = sc.nextLine();
+        if(answer.toLowerCase().equals("y")){
+            System.out.println("Yes 선택");
+        }else if(answer.toUpperCase().equals("N")){
+            System.out.println("No 선택");
+        }
+
+        String str5 = "Hello    ".trim(); // 맨 앞 뒤의 공백을 없애줌 (중간의 공백은 의미가 있기 떄문에 없애지 않음)
+        System.out.println(str5);
+
+        Point p = new Point(10, 10);
+        String str6 = String.valueOf(100); // 다른 타입의 것을 String 형태로 변경
+        String str7 = String.valueOf(p); // Object 타입은 toString을 불러옴
     }
 }

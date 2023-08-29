@@ -18,6 +18,20 @@ public class StringBufferTest1 {
 
         sb1.delete(2, 5);
         System.out.println(sb1); // 2~4인덱스 삭제
+
+
+        sb1.replace(0, 2, "ta"); // 0~1 인덱스의 문자를 마지막 str 문자열로 변경
+        System.out.println(sb1);
+
+        sb1.reverse(); // 문자열 뒤집기
+        System.out.println(sb1);
+
+        sb1.setCharAt(2, 'E'); // 지정한 인덱스의 char를 바꾸는 것
+        System.out.println(sb1);
+
+        System.out.println(sb1.length());
+        sb1.setLength(10); // 길이가 늘어나고, 이는 공백이 추가됨. 혹은 길이가 줄어들고, 문자가 잘림
+        System.out.println(sb1);
         System.out.println(sb1.length());
     }
 }

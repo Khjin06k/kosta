@@ -5,11 +5,14 @@ import BankProj.acc.SpecialAccount;
 import BankProj.exc.BankError;
 import BankProj.exc.BankException;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class Bank{
-    Account[] accs = new Account[100];
+    List<Account> accs = new ArrayList<>();
     int accCnt;
     Scanner sc = new Scanner(System.in);
 
@@ -74,8 +77,8 @@ public class Bank{
         String name = sc.nextLine();
         System.out.print("입금액 : ");
         int money = Integer.parseInt(sc.nextLine());
-        if(accCnt == accs.length) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
-        else accs[accCnt++] = new Account(id, name, money);
+        //if(accCnt == accs.size()) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
+        accs.add(new Account(id, name, money));
     }
     // 특수 계좌 개설
     void makeSpecialAccount() throws BankException{
@@ -98,17 +101,22 @@ public class Bank{
         if(!grade.equals("V") && !grade.equals("G") && !grade.equals("S") && !grade.equals("N")){
             System.out.println("잘못된 등급입니다. Normal 등급으로 설정되었습니다.");
         }
-        if(accCnt == accs.length) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
-        else accs[accCnt++] = new SpecialAccount(id, name, money, grade); // 다형성 이용하여 부모 클래스 타입의 배열에 생성 가능
+        //if(accCnt == accs.size()) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
+        else accs.add(new SpecialAccount(id, name, money, grade)); // 다형성 이용하여 부모 클래스 타입의 배열에 생성 가능
     }
 
     // 계좌번호에 따른 사용자 조회
     Account searchAccById(String id){
-        for(int i = 0; i<accCnt; i++){
-            if(accs[i].getId().equals(id)){
-                return accs[i];
-            }
+
+        for(Account acc : accs){
+            if(acc.getId().equals(id)) return acc;
         }
+       /* 위 향상된 for문으로 변경 가능
+       for(int i = 0; i<accCnt; i++){
+            if(accs.get(i).getId().equals(id)){
+                return accs.get(i);
+            }
+        }*/
         return null;
     }
 
@@ -159,12 +167,27 @@ public class Bank{
 
     // 전체 계좌 조회
     void allAccountInfo(){
-        for(int i = 0; i<accCnt; i++){ // 전체 배열을 돌릴 필요 없이 값이 존재하는 곳 까지만 반복을 돌리기 위해 accCnt 만큼만 반복 진행
-            if(accs[i] instanceof SpecialAccount){
-                System.out.println((SpecialAccount)accs[i]);
-            }
-            System.out.println(accs[i]);
+        System.out.println("[전체 계좌 조회]");
+        Iterator<Account> it = accs.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next()); // 왜 다운캐스팅을 하지 않아도 되는가?
         }
+         /*위처럼 Iterator 사용 가능
+
+        향상된 for문으로 변경 가능
+        for(Account acc : accs){
+            if(acc instanceof SpecialAccount){
+                System.out.println((SpecialAccount)acc);
+            }
+            System.out.println(acc);
+        }
+
+        for(int i = 0; i<accCnt; i++){ // 전체 배열을 돌릴 필요 없이 값이 존재하는 곳 까지만 반복을 돌리기 위해 accCnt 만큼만 반복 진행
+            if(accs.get(i) instanceof SpecialAccount){
+                System.out.println((SpecialAccount)accs.get(i));
+            }
+            System.out.println(accs.get(i));
+        }*/
     }
 
     public static void main(String[] args) {

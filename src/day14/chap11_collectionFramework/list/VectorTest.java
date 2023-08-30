@@ -1,4 +1,4 @@
-package day14.chap11_collectionFramework;
+package day14.chap11_collectionFramework.list;
 
 import java.util.*;
 

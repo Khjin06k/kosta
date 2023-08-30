@@ -1,4 +1,4 @@
-package day14.chap11_collectionFramework;
+package day14.chap11_collectionFramework.list;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ class Person implements Comparable<Person>{
     String name;
     int age;
     Person(){}
-    Person(String name, int age){
+    public Person(String name, int age){
         this.name = name;
         this.age =age;
     }

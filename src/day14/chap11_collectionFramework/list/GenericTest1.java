@@ -1,4 +1,4 @@
-package day14.chap11_collectionFramework;
+package day14.chap11_collectionFramework.list;
 
 class Data<T>{ // 타입을 정하지 않은 것을 T, E, V등 대문자로 작성
     T data; // 미정인 T에 해당하는 data

@@ -31,6 +31,16 @@ public class P10 {
             System.arraycopy(str.toCharArray(), 0, c, c.length-str.length(), str.length());
         }
         return String.valueOf(c);
+
+        /* 강사님 코드
+        int space = 0;
+        if(alignment == 1){
+            space = (length-str.length())/2;
+        } else if(alignment == 2){
+            space = length-str.length();
+        }
+        System.arraycopy(str.toCharArray(), 0, c, space, str.length()); // 변경되는 요소가 하나밖에 없기 때문에 해당 요소를 지정하는 if문을 만들고 출력
+         */
     }
 
     public static void main(String[] args) {

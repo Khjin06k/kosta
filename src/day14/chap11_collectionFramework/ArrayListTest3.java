@@ -22,6 +22,7 @@ class IdCompare implements Comparator<Account>{
     public int compare(Account o1, Account o2) {
         return o1.id.compareTo(o2.id); // 오름차순
         // return o2.id.compareTo(o1.id); // 내림차순
+        // return o1.balance-o2.balance; // int 형태는 빼기로 0, 양수, 음수를 나타내주면 됨
     }
 }
 public class ArrayListTest3 {
@@ -34,6 +35,7 @@ public class ArrayListTest3 {
 
         // Collections.sort(accs); // 에러 발생 >> ArrayListTest2에서와 동일한 에러
         Collections.sort(accs, new IdCompare()); // Comparator를 이용
+
         for (Account acc : accs) {
             System.out.println(acc);
         }

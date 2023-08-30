@@ -2,7 +2,7 @@ package day14.chap11_collectionFramework;
 
 import java.util.ArrayList;
 
-class Person{
+class Person implements Comparable<Person>{
     String name;
     int age;
     Person(){}
@@ -14,6 +14,12 @@ class Person{
     @Override
     public String toString() {
         return name+", "+age;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return age - o.age; // 나이를 기준으로 정렬 >> 앞의 것이 크면 양수, 뒤의 것이 크면 음수, 동일하면 0을 반환하여 sort를 진행하게 됨
+        // return name.compareTo(o.name); // 이름을 기준으로 정렬, 문자열은 compareTo가 존재
     }
 }
 public class ArrayListTest1 {

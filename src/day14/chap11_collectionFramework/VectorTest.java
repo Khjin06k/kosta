@@ -1,9 +1,6 @@
 package day14.chap11_collectionFramework;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.*;
 
 public class VectorTest {
     public static void main(String[] args) {
@@ -31,6 +28,18 @@ public class VectorTest {
         Iterator<Integer> it = list.iterator();
         while(it.hasNext()){
             System.out.println(it.next());
+        }
+
+        // ListIterator는 양방향이 가능
+        // 순방향
+        ListIterator<Integer> lit = list.listIterator();
+        while(lit.hasNext()){
+            System.out.println(lit.next());
+        }
+        // 역방향
+        System.out.println("=========");
+        while(lit.hasPrevious()){
+            System.out.println(lit.previous());
         }
 
     }

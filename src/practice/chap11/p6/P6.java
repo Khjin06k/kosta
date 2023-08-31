@@ -50,7 +50,9 @@ class Student implements Comparable {
 public class P6 {
     static int getGroupCount(TreeSet tset, int from, int to) {
         // TODO : 풀어야 할 메서드 >> 캐스팅 관련 에러 발생 >> 문제 해결 필요 및 subSet 이용 방법 확인 필요
-        return tset.subSet(from, to).size();
+        Student s1 = new Student("", from, from, from, from, from);
+        Student s2 = new Student("", to, to, to, to, to);
+        return tset.subSet(s1, s2).size();
     }
     public static void main(String[] args) {
         /*TreeSet<Student> set = new TreeSet<>(new Comparator<Student>() { // 제너릭 명시 필요

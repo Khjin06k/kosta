@@ -69,11 +69,11 @@ class SutdaDeck {
             (c1.num + c2.num) % 10 + 1000
             4.Player의 점수(point)에 계산한 값을 저장한다.
             */
+        String key = c1.num+""+c2.num;
             if(c1.isKwang && c2.isKwang){
-                jokbo.get("KK");
+                result = (Integer) jokbo.get("KK");
             }
-            String key = c1.num+""+c2.num;
-            if(jokbo.containsKey(key)){
+            else if(jokbo.containsKey(key)){
                 result = (Integer)jokbo.get(key);
             }else{
                 result = (c1.num + c2.num) % 10 + 1000;

@@ -5,14 +5,11 @@ import BankProj.acc.SpecialAccount;
 import BankProj.exc.BankError;
 import BankProj.exc.BankException;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class Bank{
-    List<Account> accs = new ArrayList<>();
+    Map<String, Account> accs = new HashMap<>();
     int accCnt;
     Scanner sc = new Scanner(System.in);
 
@@ -67,8 +64,8 @@ public class Bank{
         System.out.println("[계좌 개설]");
         System.out.print("계좌번호 : ");
         String id = sc.nextLine();
-        Account acc = searchAccById(id);
-        if(acc!=null){
+        //Account acc = searchAccById(id);
+        if(accs.containsKey(id)){
             throw new BankException("계좌 중복", BankError.EXISTID);
             //System.out.println("중복된 계좌가 있습니다.");
             //return;
@@ -78,15 +75,15 @@ public class Bank{
         System.out.print("입금액 : ");
         int money = Integer.parseInt(sc.nextLine());
         //if(accCnt == accs.size()) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
-        accs.add(new Account(id, name, money));
+        accs.put(id, new Account(id, name, money));
     }
     // 특수 계좌 개설
     void makeSpecialAccount() throws BankException{
         System.out.println("[특수 계좌 개설]");
         System.out.print("계좌 번호 : ");
         String id = sc.nextLine();
-        Account acc = searchAccById(id);
-        if(acc!=null){
+        //Account acc = searchAccById(id);
+        if(!accs.containsKey(id)){
             throw new BankException("계좌 중복", BankError.EXISTID);
             //System.out.println("중복된 계좌가 있습니다.");
             //return;
@@ -102,30 +99,30 @@ public class Bank{
             System.out.println("잘못된 등급입니다. Normal 등급으로 설정되었습니다.");
         }
         //if(accCnt == accs.size()) System.out.println("개설 가능한 계좌 수가 넘어 개설 불가능합니다.");
-        else accs.add(new SpecialAccount(id, name, money, grade)); // 다형성 이용하여 부모 클래스 타입의 배열에 생성 가능
+        else accs.put(id, new SpecialAccount(id, name, money, grade)); // 다형성 이용하여 부모 클래스 타입의 배열에 생성 가능
     }
 
     // 계좌번호에 따른 사용자 조회
-    Account searchAccById(String id){
+    /*Account searchAccById(String id){
 
         for(Account acc : accs){
             if(acc.getId().equals(id)) return acc;
         }
-       /* 위 향상된 for문으로 변경 가능
+       *//* 위 향상된 for문으로 변경 가능
        for(int i = 0; i<accCnt; i++){
             if(accs.get(i).getId().equals(id)){
                 return accs.get(i);
             }
-        }*/
+        }*//*
         return null;
-    }
+    }*/
 
     // 입금
     void deposit() throws BankException{
         System.out.print("입금할 계좌의 계좌번호를 입력하세요 >> ");
         String id = sc.nextLine();
-        Account acc = searchAccById(id);
-        if(acc == null){
+        //Account acc = searchAccById(id);
+        if(!accs.containsKey(id)){
                 throw new BankException("계좌 없음", BankError.NOID);
         }
 
@@ -134,48 +131,48 @@ public class Bank{
         /*if(acc instanceof SpecialAccount){ // 오버라이딩했기 때문에 다운캐스팅을 해줄 필요가 없음
            money = (int)(money * ((SpecialAccount)acc).moneys(acc));
         }*/
-        acc.deposit(money);
+        accs.get(id).deposit(money);
     }
 
     // 출금
     void withdraw() throws BankException{
         System.out.print("출금할 계좌의 계좌번호를 입력하세요 >> ");
         String id = sc.nextLine();
-        Account acc = searchAccById(id);
+        //Account acc = searchAccById(id);
 
-        if(acc == null){
+        if(!accs.containsKey(id)){
             throw new BankException("계좌 없음", BankError.NOID);
         }
 
         System.out.print("출금액 : ");
         int money = Integer.parseInt(sc.nextLine());
-        acc.withdraw(money);
+        accs.get(id).withdraw(money);
     }
 
     // 계좌 조회
     void accountInfo() throws BankException{
         System.out.print("조회할 계좌의 계좌번호를 입력하세요 >> ");
         String id = sc.nextLine();
-        Account acc = searchAccById(id);
+        //Account acc = searchAccById(id);
 
-        if(acc == null){
+        if(!accs.containsKey(id)){
             throw new BankException("계좌 오류", BankError.NOID);
         }
 
-        System.out.println(acc);; // 오버라이딩 했기 때문에 다운캐스팅을 할 필요가 없음
+        System.out.println(accs.get(id));; // 오버라이딩 했기 때문에 다운캐스팅을 할 필요가 없음
     }
 
     // 전체 계좌 조회
     void allAccountInfo(){
         System.out.println("[전체 계좌 조회]");
-        Iterator<Account> it = accs.iterator();
+        Iterator<Account> it = accs.values().iterator();
         while(it.hasNext()){
             System.out.println(it.next()); // 왜 다운캐스팅을 하지 않아도 되는가?
         }
          /*위처럼 Iterator 사용 가능
 
         향상된 for문으로 변경 가능
-        for(Account acc : accs){
+        for(Account acc : accs제.values()){
             if(acc instanceof SpecialAccount){
                 System.out.println((SpecialAccount)acc);
             }

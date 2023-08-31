@@ -1,6 +1,5 @@
 package day15.chap12_inputOutput;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -145,7 +144,10 @@ public class DataStreamTest1 {
 
         write(pers);
         List<Person> p3 = readList();
-        System.out.println(p3);
+        for(Person p : p3){
+            System.out.println(p);
+        }
+        // System.out.println(p3);
 
     }
 }

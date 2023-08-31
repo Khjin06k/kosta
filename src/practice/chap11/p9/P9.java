@@ -45,8 +45,7 @@ class Student implements Comparable {
                 +","+getTotal()
                 +","+getAverage()
                 +","+schoolRank
-                +","+classRank // 새로추가
-                ;
+                +","+classRank; // 새로추가
     }
 }
 class ClassTotalComparator implements Comparator {

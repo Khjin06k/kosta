@@ -79,6 +79,7 @@ public class DataStreamTest1 {
         try{
             fos = new FileOutputStream("person.bin");
             dos = new DataOutputStream(fos);
+
             // 몇명인지를 먼저 저장
             dos.writeInt(pers.size()); // 인원수 저장
 

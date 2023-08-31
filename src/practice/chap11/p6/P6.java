@@ -38,7 +38,7 @@ class Student implements Comparable {
                 +","+getAverage()
                 ;
     }
-    public int compareTo(Object o) {
+    public int compareTo(Object o) { // 이름을 기준으로 정렬되도록 Comparable을 implement 받아서 구현
         if(o instanceof Student) {
             Student tmp = (Student)o;
             return name.compareTo(tmp.name);
@@ -49,12 +49,17 @@ class Student implements Comparable {
 }
 public class P6 {
     static int getGroupCount(TreeSet tset, int from, int to) {
-        // TODO : 풀어야 할 메서드 >> 캐스팅 관련 에러 발생 >> 문제 해결 필요 및 subSet 이용 방법 확인 필요
-        Student s1 = new Student("", from, from, from, from, from);
-        Student s2 = new Student("", to, to, to, to, to);
-        return tset.subSet(s1, s2).size();
+        Student s1 = new Student("", from, from, from, from, from); // Student 타입을 만들기 위해 from을 평균으로 가지는 학생을 생성
+        Student s2 = new Student("", to, to, to, to, to); // to를 평균으로 가지는 학생을 생성
+        // subSet의 타입은 Integer가 아닌 Student 타입이어야 하기 때문에 subSet(from, to)를 넣을 수 없음
+        return tset.subSet(s1, s2).size(); // 학생 중 평균이 from과 to 사이인 학생들의 tset을 만들어 크기 출력
     }
+
     public static void main(String[] args) {
+        // 현재 Comparable을 이용해서 compareTo를 이름을 기준으로 비교하도록 구현되었기 때문에 평균을 기준으로 생성을 하기 위해
+        // TreeSet을 생성할 때 이래 함수를 사용하게 됨.
+        // 평균을 비교하는 것이나, 합계를 비교하는 것이 모두 동일하기 때문에 평균이 아닌 총점으로 비교를 진행해도 결과는 무리없음(동일한 숫자로 나누기 때문)
+
         /*TreeSet<Student> set = new TreeSet<>(new Comparator<Student>() { // 제너릭 명시 필요
             public int compare(Student o1, Student o2) {
                 if(o1.getAverage() - o2.getAverage()>0) return 1; // 다운캐스팅 없이 매개변수의 타입을 바로 변경 가능

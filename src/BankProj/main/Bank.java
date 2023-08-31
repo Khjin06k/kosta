@@ -9,7 +9,7 @@ import java.util.*;
 
 
 public class Bank{
-    Map<String, Account> accs = new HashMap<>();
+    Map<String, Account> accs = new TreeMap<>(); // Tree는 자동 정렬 >> id 기준으로 정렬됨
     int accCnt;
     Scanner sc = new Scanner(System.in);
 
@@ -83,7 +83,7 @@ public class Bank{
         System.out.print("계좌 번호 : ");
         String id = sc.nextLine();
         //Account acc = searchAccById(id);
-        if(!accs.containsKey(id)){
+        if(accs.containsKey(id)){
             throw new BankException("계좌 중복", BankError.EXISTID);
             //System.out.println("중복된 계좌가 있습니다.");
             //return;

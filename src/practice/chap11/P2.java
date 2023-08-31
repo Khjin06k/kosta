@@ -19,8 +19,8 @@ public class P2 {
         list.add(7);
 
         HashSet set = new HashSet(list); // 중복 허용 x : 3,6,2,7
-        TreeSet tset = new TreeSet(set); // 중복 허용을 하지 않으며, tree 구조 >> 2 3 6 7
-        Stack stack = new Stack();
+        TreeSet tset = new TreeSet(set); // 중복 허용을 하지 않으며, tree 구조(TreeSet은 작은 순서대로 출력) >> 2 3 6 7
+        Stack stack = new Stack(); // LIFO 이기 때문에 뒤집어짐 >> 7 6 3 2
         stack.addAll(tset);
 
         while (!stack.empty())

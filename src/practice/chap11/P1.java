@@ -21,21 +21,33 @@ public class P1 {
         list2.add(5);
         list2.add(6);
 
-        /*
-
-         * (1) 알맞은 코드를 넣어 완성하시오 .
-
-         */
+        // 교집합
         kyo.addAll(list1);
         kyo.retainAll(list2);
+
+        // 차집합 >> list1을 기준으로 차집합
         cha.addAll(list1);
         cha.removeAll(list2);
+
+        // 합집합 >> list1을 기준으로 하는 차집합 이용
         hap.addAll(cha);
         hap.addAll(list2);
 
+        /*
+        강사님 코드
+        // 합집합
+        hap.addAll(list1);
+        hap.removeAll(list2);
+        hap.addAll(list2);
 
+        // 교집합
+        kyo.addAll(list1);
+        kyo.retainAll(list2);
 
-
+        // 차집합
+        cha.addAll(list1);
+        cah.removeAll(list2);
+         */
 
         System.out.println("list1=" + list1);
         System.out.println("list2=" + list2);

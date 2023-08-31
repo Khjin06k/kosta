@@ -32,7 +32,6 @@ class Student implements Comparable{
                 + "," + getTotal() + "," + getAverage();
     }
 
-
     @Override
     public int compareTo(Object o) {
         Student s = (Student) o;

@@ -217,6 +217,57 @@ public class Bank{
             }
         }
     }
+    public void store_t(){
+        BufferedWriter bw = null;
+        try{
+            bw = new BufferedWriter(new FileWriter("accs.bin"));
+            for(Account acc : accs.values()){
+                String accStr = acc.getId();
+                accStr+=","+acc.getName();
+                accStr+=","+acc.getBalance();
+                if(acc instanceof SpecialAccount){
+                    accStr+=","+((SpecialAccount)acc).getGrade().charAt(0);
+                }
+                bw.write(accStr);
+                bw.newLine();
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(bw != null) bw.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    public void load_t(){
+        BufferedReader br = null;
+        try{
+            br = new BufferedReader(new FileReader("accs.bin"));
+            String accStr = null;
+            while((accStr=br.readLine()) != null){
+                String[] accProp = accStr.split(",");
+                String id = accProp[0];
+                String name = accProp[1];
+                int balance = Integer.parseInt(accProp[2]);
+                if(accProp.length == 4){
+                    String grade = accProp[3];
+                    accs.put(id, new SpecialAccount(id, name, balance, grade));
+                }else{
+                    accs.put(id, new Account(id, name, balance));
+                }
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(br != null) br.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void load_b(){
         DataInputStream dis = null;
@@ -250,7 +301,8 @@ public class Bank{
         Scanner sc = new Scanner(System.in);
 
         Bank bank = new Bank();
-        bank.load_b();
+        //bank.load_b();
+        bank.load_t();
 
         int sel;
         while(true){
@@ -258,7 +310,8 @@ public class Bank{
                 sel = bank.menu();
 
                 if (sel == 0){
-                    bank.store_b(); // 0이면 종료이므로 종료 시 한 번에 저장 및 종료 진행
+                    //bank.store_b(); // 0이면 종료이므로 종료 시 한 번에 저장 및 종료 진행
+                    bank.store_t();;
                     break;
                 }
                 switch (sel) {

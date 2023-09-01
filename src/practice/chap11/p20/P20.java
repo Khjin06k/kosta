@@ -126,10 +126,10 @@ public class P20 {
                     break;
                 }
                 else{ // 대소문자 상관없이 q, Q가 아니라면
-                    // TODO : 학생 성적 입력 시 2번 입력해야 하고 두 번째 것이 적용 되는 문제 해결 필요
+                    // TODO 1 : 학생 성적 입력 시 2번 입력해야 하고 두 번째 것이 적용 되는 문제 해결 필요
                     String input = s.nextLine();
                     System.out.println(input);
-                    String[] list = input.split(",");
+                    String[] list = input.split(","); // TODO 2 : 입력을 받을 때 어떤 기준이 있다면 해당 입력을 기준으로 입력을 다르게 받을 수 있는지 검색 해보기
                     System.out.println(list.length);
                     if(list.length != 6) System.out.println("잘못된 입력입니다.");
                     else{

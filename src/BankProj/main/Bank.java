@@ -5,6 +5,8 @@ import BankProj.acc.SpecialAccount;
 import BankProj.exc.BankError;
 import BankProj.exc.BankException;
 
+import javax.xml.crypto.Data;
+import java.io.*;
 import java.util.*;
 
 
@@ -187,16 +189,78 @@ public class Bank{
         }*/
     }
 
+    public void store_b(){
+        DataOutputStream dao = null;
+        try{
+            dao = new DataOutputStream(new FileOutputStream("accs.bin"));
+            dao.writeInt(accs.size()); // 계좌 개수 저장
+            for(Account acc : accs.values()){
+                if(acc instanceof SpecialAccount){
+                    dao.writeChar('S'); // SpeciailAccount 계좌일 경우
+                }else{
+                    dao.writeChar('N'); // 일반 계좌일 경우
+                }
+                dao.writeUTF(acc.getId()); // 계좌번호
+                dao.writeUTF(acc.getName()); // 이름
+                dao.writeInt(acc.getBalance()); // 잔액
+                if(acc instanceof SpecialAccount){
+                    dao.writeUTF(((SpecialAccount) acc).getGrade()); // 등급
+                }
+            }
+        }catch (IOException e){
+            // e.printStackTrace();
+        }finally {
+            try{
+                if(dao != null) dao.close();
+            }catch (IOException e){
+                // e.printStackTrace();
+            }
+        }
+    }
+
+    public void load_b(){
+        DataInputStream dis = null;
+        try{
+            dis = new DataInputStream(new FileInputStream("accs.bin"));
+            int count = dis.readInt();
+            for(int i = 0; i<count; i++){
+                char sect = dis.readChar(); // 계좌 종료 구분
+                String id = dis.readUTF(); // 계좌 번호
+                String name = dis.readUTF(); // 이름
+                int balance = dis.readInt(); // 잔액
+                if(sect == 'S') {
+                    String grade = dis.readUTF(); // 등급 >> 맨 앞 한글자만 입력 받아서 생성하기 때문에 아래 생성자 생성시 맨 처음 한글자만 가져와서 생성 진행
+                    accs.put(id, new SpecialAccount(id, name, balance, grade.charAt(0)+""));
+                }else{
+                    accs.put(id, new Account(id, name, balance));
+                }
+            }
+        }catch (IOException e){
+            // e.printStackTrace();
+        }finally {
+            try{
+                if(dis != null) dis.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         Bank bank = new Bank();
+        bank.load_b();
+
         int sel;
         while(true){
             try {
                 sel = bank.menu();
 
-                if (sel == 0) break;
+                if (sel == 0){
+                    bank.store_b(); // 0이면 종료이므로 종료 시 한 번에 저장 및 종료 진행
+                    break;
+                }
                 switch (sel) {
                     case 1:
                         bank.selAccMenu();

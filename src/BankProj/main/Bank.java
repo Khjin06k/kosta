@@ -247,7 +247,17 @@ public class Bank{
             br = new BufferedReader(new FileReader("accs.bin"));
             String accStr = null;
             while((accStr=br.readLine()) != null){
-                String[] accProp = accStr.split(",");
+                StringTokenizer st = new StringTokenizer(accStr, ",");
+                String id = st.nextToken();
+                String name = st.nextToken();
+                int balance = Integer.parseInt(st.nextToken());
+                if(st.countTokens() != 0){ // 토큰이 남아있는 것이 있다면
+                    String grade = st.nextToken();
+                    accs.put(id, new SpecialAccount(id, name, balance, grade));
+                }else{
+                    accs.put(id, new Account(id, name, balance));
+                }
+               /* String[] accProp = accStr.split(",");
                 String id = accProp[0];
                 String name = accProp[1];
                 int balance = Integer.parseInt(accProp[2]);
@@ -256,7 +266,7 @@ public class Bank{
                     accs.put(id, new SpecialAccount(id, name, balance, grade));
                 }else{
                     accs.put(id, new Account(id, name, balance));
-                }
+                }*/
             }
         }catch (IOException e){
             e.printStackTrace();

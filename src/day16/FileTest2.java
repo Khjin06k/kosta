@@ -14,7 +14,9 @@ public class FileTest2 {
         }*/
 
         File[] files1 = f.listFiles();
+        int totLength = 0;
         for(File file : files1){
+            totLength += file.length();
             // System.out.println(file.isDirectory()?"[" + file.getName()+"]":file.getName());
             if(file.isDirectory()){
                 System.out.println("[" + file.getName()+"]");
@@ -22,5 +24,6 @@ public class FileTest2 {
                 System.out.println(file.getName());
             }
         }
+        System.out.println(totLength);
     }
 }

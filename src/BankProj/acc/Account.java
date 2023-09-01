@@ -3,7 +3,9 @@ package BankProj.acc;
 import BankProj.exc.BankError;
 import BankProj.exc.BankException;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     String id;
     String name;
     int balance;

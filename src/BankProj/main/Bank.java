@@ -307,6 +307,40 @@ public class Bank{
         }
     }
 
+    public void store_s(){
+        ObjectOutputStream oos = null;
+        try{
+            oos = new ObjectOutputStream(new FileOutputStream("accs.dat"));
+            oos.writeObject(accs);
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(oos != null) oos.close();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+    public void load_s(){
+        ObjectInputStream ois = null;
+        try{
+            ois = new ObjectInputStream(new FileInputStream("accs.dat"));
+            accs = (Map<String, Account>)ois.readObject();
+        }catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(ois != null) ois.close();
+            }catch (IOException  e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

@@ -3,8 +3,7 @@ package practice.chap11.p20;
 // Scanner클래스를 이용해서 화면으로부터 데이터를 입력하고 보여주는 기능을 완성하시오.
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+
 import java.util.Scanner;
 
 class Student implements Comparable {
@@ -126,11 +125,7 @@ public class P20 {
                     break;
                 }
                 else{ // 대소문자 상관없이 q, Q가 아니라면
-                    // TODO 1 : 학생 성적 입력 시 2번 입력해야 하고 두 번째 것이 적용 되는 문제 해결 필요
-                    String input = s.nextLine();
-                    System.out.println(input);
-                    String[] list = input.split(","); // TODO 2 : 입력을 받을 때 어떤 기준이 있다면 해당 입력을 기준으로 입력을 다르게 받을 수 있는지 검색 해보기
-                    System.out.println(list.length);
+                    String[] list = choice.split(","); // TODO 1 : 입력을 받을 때 어떤 기준이 있다면 해당 입력을 기준으로 입력을 다르게 받을 수 있는지 검색 해보기
                     if(list.length != 6) System.out.println("잘못된 입력입니다.");
                     else{
                         record.add(new Student(list[0], Integer.parseInt(list[1]), Integer.parseInt(list[2]),

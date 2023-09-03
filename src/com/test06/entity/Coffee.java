@@ -1,10 +1,11 @@
 package com.test06.entity;
 
 public class Coffee extends Drink{
-    final int COFFEE_PRICE=100;
+    public final int COFFEE_PRICE;
 
     public Coffee() {
-        super();
+        super(100);
+        COFFEE_PRICE = 100;
     }
 
     @Override

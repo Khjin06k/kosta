@@ -1,8 +1,11 @@
 package com.test06.entity;
 
 public class Coke extends Drink{
-    final int COKE_PRICE = 50;
-    public Coke(){super();}
+    final int COKE_PRICE;
+    public Coke(){
+        super(50);
+        COKE_PRICE=50;
+    }
 
     @Override
     public String toString() {

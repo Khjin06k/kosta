@@ -100,5 +100,8 @@ public class Company {
         for(Employee e : map.values()){
             System.out.println(e.toString() +"\t"+ e.tax());
         }
+        for(int i : map.keySet()){
+            System.out.println(map.get(i).tax());
+        }
     }
 }

@@ -5,8 +5,6 @@ import a_java.empProj.global.PartTime;
 import a_java.empProj.global.Permanent;
 import a_java.empProj.global.Sales;
 
-import java.empProj.global.*;
-
 public class CompanyMain {
     public static void main(String[] args) {
         Company com = new Company();

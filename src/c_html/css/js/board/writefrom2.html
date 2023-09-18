@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        h1{margin:0 auto;}
+
+        #th2{
+            background-color: skyblue;
+        }
+        #th1{
+            background-color: orange;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+   
+</head>
+
+<body>
+    <h1 style="text-align: center;">게시글 등록</h1>
+    <br>
+
+    <table>
+        <col style="width:200px">
+        <col style="width:600px">
+        <tr>
+            <td id="th1">글쓴이</td>
+            <td id="th2"><input id="put" type="text" size="40"></td>
+        </tr>
+        <tr>
+            <td id="th1">제목</td>
+            <td id="th2"><input id="put" type="text" size="40"></td>
+        </tr>
+        <tr>
+            <td id="th1">내용</td>
+            <td id="th2"><textarea id="put" type="text" cols="60" rows="20"></textarea></td>
+        </tr>
+        <tr>
+            <td id="th1">이미지 파일 첨부</td>
+            <td id="th2"><input id="put" type="file"> </td>
+        </tr>
+
+    </table>
+    <div class="but", style="text-align: center;">
+        <button type="submit">등록</button>
+        <button type="submit">다시쓰기</button>
+    </div>
+    
+</body> 
+
+</html>

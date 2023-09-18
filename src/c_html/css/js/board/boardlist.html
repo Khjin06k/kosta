@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 테이블 관련 스타일 설정 */
+        table,
+        th,
+        td {
+            border: 2px solid white;
+        }
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: center;
+        }
+
+        th {
+            background-color: orange;
+        }
+
+        table {
+            margin: 0 auto;
+        }
+
+        .title {
+            margin: 0 auto;
+        }
+
+        .title1 {
+            margin: 0 auto;
+            background-attachment: orange;
+            border: 2px solid white;
+            width: 200px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://masonry.desandro.com/masonry.pkgd.min.js"></script>
+
+    <script>
+        var articleList = [{ no: 1, title: '제목1', writer: 'hong', date: '2023-09-15', count: 0 },
+        { no: 2, title: '제목2', writer: 'song', date: '2023-09-16', count: 0 },
+        { no: 3, title: '제목3', writer: 'gong', date: '2023-09-17', count: 0 },
+        { no: 4, title: '제목4', writer: 'pong', date: '2023-09-18', count: 0 },
+        { no: 5, title: '제목5', writer: 'cong', date: '2023-09-19', count: 0 }
+        ];
+
+        $(function () {
+            for (var article of articleList) {
+                //$('<tr><td>${article.no}</td><td> <a href="detail.form.html?no=${article.no}"> ${article.title}</td><td>${article.writer}</td><td>${article.date}</td><td>${article.count}</td></tr>').appendTo(table>body);
+                var tr = $(`<tr></tr>`);
+                var td_no = $(`<td>${article.no}</td>`);
+                var td_title=$(`<td> <a href="detail.form.html?no=${article.no}"> ${article.title}</td>`);
+                var td_writer=$(`<td>${article.writer}</td>`);
+                var td_date=$(`<td>${article.date}</td>`);
+                var td_count=$(`<td>${article.count}</td></tr>`);
+                var td_del=$(`<button>삭제</button>`);
+                    
+                tr.append(td_no);
+                tr.append(td_title);
+                tr.append(td_writer);
+                tr.append(td_date);
+                tr.append(td_count);
+                tr.append(td_del);
+                
+                $('table>tbody').append(tr);
+            
+            
+                }
+            
+        })
+
+        window.onload = function () {
+            renderTable("table", serverData);
+        };
+    </script>
+</head>
+
+<body>
+    <div class="parent" style="text-align: center;">
+        <h3 style="display: inline">글 목록
+            <a href="writeform.html">글쓰기</a>
+        </h3>
+
+    </div><br>
+    <div class="title" style="text-align: center;">
+        <select name="choice" , id="choice">
+            <option value="제목">제목</option>
+            <option value="내용">내용</option>
+            <option value="작성자">작성자</option>
+        </select>
+        <input type="text" id="text">
+        <button type="submit">검색</button>
+    </div>
+    <br>
+
+    <table style="text-align: center;">
+        <col style="width:100px">
+        <col style="width:100px">
+        <col style="width:150px">
+        <col style="width:100px">
+        <col style="width:150px">
+        <col style="width:100px">
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+            <th>조회수</th>
+            <th>삭제</th>
+        </tr>
+
+    </table>
+</body>
+
+</html>

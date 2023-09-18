@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto
+        }
+
+        .body {
+            background-color: lightgray;
+        }
+
+        .box {
+            background-color: black;
+            margin: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="jquery.masonry.min.js"></script>
+    <script src="jquery.imagesloaded.min.js"></script>
+    <script>
+        var pictures = ['picture1.jpg', 'picture2.jpg', 'picture3.jpg', 'picture4.jpg', 'picture5.jpg',
+            'picture6.jpg', 'picture7.jpg', 'picture8.jpg', 'picture9.jpg', 'picture10.jpg', 'picture11.jpg', 'picture12.jpg',
+            'picture13.jpg', 'picture14.jpg', 'picture15.jpg', 'picture16.jpg', 'picture17.jpg', 'picture18.jpg', 'picture19.jpg',
+            'picture20.jpg', 'picture21.jpg', 'picture22.jpg', 'picture23.jpg', 'picture24.jpg', 'picture25.jpg']
+
+        $(function () {
+            for (let i = 0; i < 25; i++) {
+                let img = $('<img/>').addClass('box').attr('id', "picture" + (i + 1)).css({
+                    padding: 7
+                });
+                img.attr('src', './picture/' + picture[i]);
+                img.attr('width', 180);
+                img.attr('height', 'auto');
+                $('#picture').append(img);
+            }
+
+        })
+        $(function () {
+            // 이미지 로드 확인
+            $("#picture").imagesLoaded(function () {
+                //JQuery Masonry 플러그인 적용
+                $("#picture").masonry({
+                    columnwidth: 110
+                });
+            });
+        })
+        /*for(var i=0; i<25; i++){
+            //div를 만들어 box라는 클래스를 생성해서 css를 설정(박스 크기를 랜덤하게 설정)
+            $('<img></img>').addClass('box').attr('id', 'picture'+(i+1)).css({
+                width:100,
+                height:Math.floor(Math.random()*100)+50 //random()은 0부터 1까지의 값을 랜덤하게 가져옮
+            }).appendTo('body');
+        }
+        var pictures = ['flower1.jpg', 'flower2.jpg', 'flower3.jpg'];
+
+        for(var i=0; i<3; i++){
+            $(`#picture`+(i+1)).attr(src, pictures[i]);
+        }
+
+        $('body').masonry({
+            columnWidth:110
+        })*/
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="picture"></div>
+
+</body>
+
+</html>
